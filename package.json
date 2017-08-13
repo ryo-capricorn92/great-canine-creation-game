@@ -1,0 +1,23 @@
+{
+  "name": "great-canine-creation-game",
+  "version": "1.0.0",
+  "description": "A canine genetics game",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/ryo-capricorn92/great-canine-creation-game.git"
+  },
+  "keywords": [
+    "genetics",
+    "games"
+  ],
+  "author": "Ryo Wheatley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/ryo-capricorn92/great-canine-creation-game/issues"
+  },
+  "homepage": "https://gitlab.com/ryo-capricorn92/great-canine-creation-game#README"
+}
