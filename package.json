@@ -24,6 +24,9 @@
   "homepage": "https://gitlab.com/ryo-capricorn92/great-canine-creation-game#README",
   "dependencies": {
     "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "pg": "^7.1.2",
     "sequelize": "^4.4.7"
   },
