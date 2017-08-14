@@ -1,8 +1,11 @@
 const express = require('express');
 const session = require('express-session');
-const db = require('./server/db');
-const routes = require('./server/routes');
 const passport = require('passport');
+const { Strategy: LocalStrategy } = require('passport-local');
+
+const db = require('./server/db');
+const User = require('./server/models/users/model');
+const routes = require('./server/routes');
 
 /* create express server */
 const app = express();
@@ -26,6 +29,45 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+/* configure passport */
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+passport.deserializeUser((id, done) => {
+  User.findById(id, (err, user) => {
+    done(err, user);
+  });
+});
+
+passport.use('local-signup', new LocalStrategy((username, password, done) => {
+  User.findOne({ username }, (err, user) => {
+    if (err) { return done(err); }
+    if (user) {
+      return done(null, false, { message: 'Username is taken.' });
+    }
+    const newUser = new User({ username });
+    newUser.password = newUser.generateHash(password);
+    return newUser.save((error) => {
+      if (error) { throw error; }
+      return done(null, newUser);
+    });
+  });
+}));
+
+passport.use('local-login', new LocalStrategy((username, password, done) => {
+  User.findOne({ username }, (err, user) => {
+    if (err) { return done(err); }
+    if (!user) {
+      return done(null, false, { message: 'Incorrect username.' });
+    }
+    if (!user.validPassword(password)) {
+      return done(null, false, { message: 'Incorrect password.' });
+    }
+    return done(null, user);
+  });
+}));
 
 /* define all the routes */
 routes(app, express);
