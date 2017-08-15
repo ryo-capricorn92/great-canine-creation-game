@@ -1,5 +1,6 @@
 const express = require('express');
 const session = require('express-session');
+const bodyParser = require('body-parser');
 const passport = require('passport');
 const { Strategy: LocalStrategy } = require('passport-local');
 
@@ -19,6 +20,8 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 /* configure middleware and express configs */
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
   secret: 'piano possum',
   resave: false,
@@ -41,36 +44,43 @@ passport.deserializeUser((id, done) => {
   });
 });
 
-passport.use('local-signup', new LocalStrategy((username, password, done) => {
-  User.findOne({ username }, (err, user) => {
-    if (err) { return done(err); }
+passport.use('local-signup', new LocalStrategy({
+  usernameField: 'username',
+  passwordField: 'password',
+  passReqToCallback: true,
+}, (req, username, password, done) => { // eslint-disable-line consistent-return
+  if (!username || !password) {
+    return done(null, false, { message: 'Username and password is required' });
+  }
+
+  User.findOne({ where: { username } }).then((user) => {
     if (user) {
       return done(null, false, { message: 'Username is taken.' });
     }
-    const newUser = new User({ username });
-    newUser.password = newUser.generateHash(password);
-    return newUser.save((error) => {
-      if (error) { throw error; }
-      return done(null, newUser);
-    });
+
+    return User.create({ username, password: User.generateHash(password) })
+      .then(newUser => done(null, newUser));
   });
 }));
 
 passport.use('local-login', new LocalStrategy((username, password, done) => {
-  User.findOne({ username }, (err, user) => {
-    if (err) { return done(err); }
+  User.findOne({ where: { username } }).then((user) => {
+    console.log('TESTING 1');
     if (!user) {
       return done(null, false, { message: 'Incorrect username.' });
     }
-    if (!user.validPassword(password)) {
+    console.log('TESTING 2');
+    if (!user.validPassword(password, user.password)) {
+      console.log('TESTING 4');
       return done(null, false, { message: 'Incorrect password.' });
     }
+    console.log('TESTING 5');
     return done(null, user);
   });
 }));
 
 /* define all the routes */
-routes(app, express);
+routes(app, passport);
 
 app.get('/api/test', (req, res) => {
   res.json({
@@ -82,6 +92,7 @@ app.get('/api/test', (req, res) => {
 /* sync the database and listen on the chosen port */
 db.sync().then(() => {
   app.listen(app.get('port'), () => {
+    // eslint-disable-next-line no-console
     console.log(`Express server listening on port ${app.get('port')} in ${app.settings.env} mode`);
   });
 });
