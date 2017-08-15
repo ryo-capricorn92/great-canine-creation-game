@@ -24,8 +24,6 @@ const User = db.define('user', {
 User.generateHash = password => bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 
 User.prototype.validPassword = function validPassword(password) {
-  console.log('TESTING 3');
-  console.log(this);
   return bcrypt.compareSync(password, this.password);
 };
 

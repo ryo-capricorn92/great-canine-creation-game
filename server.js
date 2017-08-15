@@ -1,6 +1,7 @@
 const express = require('express');
 const session = require('express-session');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const passport = require('passport');
 const { Strategy: LocalStrategy } = require('passport-local');
 
@@ -14,12 +15,8 @@ const app = express();
 /* decide which port to use */
 app.set('port', process.env.PORT || '8080');
 
-/* use the static bundle instead of the local server in production */
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
-}
-
 /* configure middleware and express configs */
+app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
@@ -27,20 +24,27 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
   cookie: {
-    maxAge: 604800000,
+    maxAge: 3 * 24 * 60 * 60 * 1000, // 3 days
   },
 }));
 app.use(passport.initialize());
 app.use(passport.session());
 
+/* use the static bundle instead of the local server in production */
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+}
+
 /* configure passport */
 passport.serializeUser((user, done) => {
+  console.log('SERIALIZE');
   done(null, user.id);
 });
 
 passport.deserializeUser((id, done) => {
-  User.findById(id, (err, user) => {
-    done(err, user);
+  console.log('DESERIALIZE', id);
+  User.findOne({ where: { id } }).then((user) => {
+    done(null, user);
   });
 });
 
@@ -59,22 +63,18 @@ passport.use('local-signup', new LocalStrategy({
     }
 
     return User.create({ username, password: User.generateHash(password) })
-      .then(newUser => done(null, newUser));
+      .then(newUser => req.session.save(() => done(null, newUser)));
   });
 }));
 
 passport.use('local-login', new LocalStrategy((username, password, done) => {
   User.findOne({ where: { username } }).then((user) => {
-    console.log('TESTING 1');
     if (!user) {
       return done(null, false, { message: 'Incorrect username.' });
     }
-    console.log('TESTING 2');
     if (!user.validPassword(password, user.password)) {
-      console.log('TESTING 4');
       return done(null, false, { message: 'Incorrect password.' });
     }
-    console.log('TESTING 5');
     return done(null, user);
   });
 }));
