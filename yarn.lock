@@ -122,10 +122,6 @@ arrify@^1.0.0:
   version "1.0.1"
   resolved "http://yarnball.ops.techteam.netapp.com:4873/arrify/-/arrify-1.0.1.tgz#898508da2226f380df904728456849c1501a4b0d"
 
-asap@~2.0.3:
-  version "2.0.6"
-  resolved "http://yarnball.ops.techteam.netapp.com:4873/asap/-/asap-2.0.6.tgz#e50347611d7e690943208bbdafebcbc2fb866d46"
-
 ast-types-flow@0.0.7:
   version "0.0.7"
   resolved "http://yarnball.ops.techteam.netapp.com:4873/ast-types-flow/-/ast-types-flow-0.0.7.tgz#f70b735c6bca1a5c9c22d982c3e39e7feba3bdad"
@@ -147,10 +143,6 @@ babel-code-frame@^6.22.0:
 balanced-match@^1.0.0:
   version "1.0.0"
   resolved "http://yarnball.ops.techteam.netapp.com:4873/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
-
-base64-js@^1.0.2:
-  version "1.2.1"
-  resolved "http://yarnball.ops.techteam.netapp.com:4873/base64-js/-/base64-js-1.2.1.tgz#a91947da1f4a516ea38e5b4ec0ec3773675e0886"
 
 bcrypt-nodejs@^0.0.3:
   version "0.0.3"
@@ -185,13 +177,6 @@ brace-expansion@^1.1.7:
 buffer-writer@1.0.1:
   version "1.0.1"
   resolved "http://yarnball.ops.techteam.netapp.com:4873/buffer-writer/-/buffer-writer-1.0.1.tgz#22a936901e3029afcd7547eb4487ceb697a3bf08"
-
-buffer@^5.0.3:
-  version "5.0.7"
-  resolved "http://yarnball.ops.techteam.netapp.com:4873/buffer/-/buffer-5.0.7.tgz#570a290b625cf2603290c1149223d27ccf04db97"
-  dependencies:
-    base64-js "^1.0.2"
-    ieee754 "^1.1.4"
 
 builtin-modules@^1.0.0, builtin-modules@^1.1.1:
   version "1.1.1"
@@ -330,10 +315,6 @@ cookie@0.3.1:
   version "0.3.1"
   resolved "http://yarnball.ops.techteam.netapp.com:4873/cookie/-/cookie-0.3.1.tgz#e7e0a1f9ef43b4c8ba925c5c5a96e806d16873bb"
 
-core-js@^1.0.0:
-  version "1.2.7"
-  resolved "http://yarnball.ops.techteam.netapp.com:4873/core-js/-/core-js-1.2.7.tgz#652294c14651db28fa93bd2d5ff2983a4f08c636"
-
 core-util-is@~1.0.0:
   version "1.0.2"
   resolved "http://yarnball.ops.techteam.netapp.com:4873/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
@@ -349,18 +330,6 @@ cross-spawn@^5.0.1, cross-spawn@^5.1.0:
     lru-cache "^4.0.1"
     shebang-command "^1.2.0"
     which "^1.2.9"
-
-css-color-keywords@^1.0.0:
-  version "1.0.0"
-  resolved "http://yarnball.ops.techteam.netapp.com:4873/css-color-keywords/-/css-color-keywords-1.0.0.tgz#fea2616dc676b2962686b3af8dbdbe180b244e05"
-
-css-to-react-native@^2.0.3:
-  version "2.0.4"
-  resolved "http://yarnball.ops.techteam.netapp.com:4873/css-to-react-native/-/css-to-react-native-2.0.4.tgz#cf4cc407558b3474d4ba8be1a2cd3b6ce713101b"
-  dependencies:
-    css-color-keywords "^1.0.0"
-    fbjs "^0.8.5"
-    postcss-value-parser "^3.3.0"
 
 damerau-levenshtein@^1.0.0:
   version "1.0.4"
@@ -442,12 +411,6 @@ emoji-regex@^6.1.0:
 encodeurl@~1.0.1:
   version "1.0.1"
   resolved "http://yarnball.ops.techteam.netapp.com:4873/encodeurl/-/encodeurl-1.0.1.tgz#79e3d58655346909fe6f0f45a5de68103b294d20"
-
-encoding@^0.1.11:
-  version "0.1.12"
-  resolved "http://yarnball.ops.techteam.netapp.com:4873/encoding/-/encoding-0.1.12.tgz#538b66f3ee62cd1ab51ec323829d1f9480c74beb"
-  dependencies:
-    iconv-lite "~0.4.13"
 
 env-cmd@^5.0.0:
   version "5.1.0"
@@ -699,18 +662,6 @@ fast-levenshtein@~2.0.4:
   version "2.0.6"
   resolved "http://yarnball.ops.techteam.netapp.com:4873/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
 
-fbjs@^0.8.5, fbjs@^0.8.9:
-  version "0.8.14"
-  resolved "http://yarnball.ops.techteam.netapp.com:4873/fbjs/-/fbjs-0.8.14.tgz#d1dbe2be254c35a91e09f31f9cd50a40b2a0ed1c"
-  dependencies:
-    core-js "^1.0.0"
-    isomorphic-fetch "^2.1.1"
-    loose-envify "^1.0.0"
-    object-assign "^4.1.0"
-    promise "^7.1.1"
-    setimmediate "^1.0.5"
-    ua-parser-js "^0.7.9"
-
 figures@^2.0.0:
   version "2.0.0"
   resolved "http://yarnball.ops.techteam.netapp.com:4873/figures/-/figures-2.0.0.tgz#3ab1a2d2a62c8bfb431a0c94cb797a2fce27c962"
@@ -842,10 +793,6 @@ has@^1.0.1:
   dependencies:
     function-bind "^1.0.2"
 
-hoist-non-react-statics@^1.2.0:
-  version "1.2.0"
-  resolved "http://yarnball.ops.techteam.netapp.com:4873/hoist-non-react-statics/-/hoist-non-react-statics-1.2.0.tgz#aa448cf0986d55cc40773b17174b7dd066cb7cfb"
-
 hosted-git-info@^2.1.4:
   version "2.5.0"
   resolved "http://yarnball.ops.techteam.netapp.com:4873/hosted-git-info/-/hosted-git-info-2.5.0.tgz#6d60e34b3abbc8313062c3b798ef8d901a07af3c"
@@ -863,13 +810,9 @@ iconv-lite@0.4.15:
   version "0.4.15"
   resolved "http://yarnball.ops.techteam.netapp.com:4873/iconv-lite/-/iconv-lite-0.4.15.tgz#fe265a218ac6a57cfe854927e9d04c19825eddeb"
 
-iconv-lite@^0.4.17, iconv-lite@~0.4.13:
+iconv-lite@^0.4.17:
   version "0.4.18"
   resolved "http://yarnball.ops.techteam.netapp.com:4873/iconv-lite/-/iconv-lite-0.4.18.tgz#23d8656b16aae6742ac29732ea8f0336a4789cf2"
-
-ieee754@^1.1.4:
-  version "1.1.8"
-  resolved "http://yarnball.ops.techteam.netapp.com:4873/ieee754/-/ieee754-1.1.8.tgz#be33d40ac10ef1926701f6f08a2d86fbfd1ad3e4"
 
 ignore@^3.3.3:
   version "3.3.3"
@@ -943,10 +886,6 @@ is-fullwidth-code-point@^2.0.0:
   version "2.0.0"
   resolved "http://yarnball.ops.techteam.netapp.com:4873/is-fullwidth-code-point/-/is-fullwidth-code-point-2.0.0.tgz#a3b30a5c4f199183167aaab93beefae3ddfb654f"
 
-is-function@^1.0.1:
-  version "1.0.1"
-  resolved "http://yarnball.ops.techteam.netapp.com:4873/is-function/-/is-function-1.0.1.tgz#12cfb98b65b57dd3d193a3121f5f6e2f437602b5"
-
 is-path-cwd@^1.0.0:
   version "1.0.0"
   resolved "http://yarnball.ops.techteam.netapp.com:4873/is-path-cwd/-/is-path-cwd-1.0.0.tgz#d225ec23132e89edd38fda767472e62e65f1106d"
@@ -962,12 +901,6 @@ is-path-inside@^1.0.0:
   resolved "http://yarnball.ops.techteam.netapp.com:4873/is-path-inside/-/is-path-inside-1.0.0.tgz#fc06e5a1683fbda13de667aff717bbc10a48f37f"
   dependencies:
     path-is-inside "^1.0.1"
-
-is-plain-object@^2.0.1:
-  version "2.0.4"
-  resolved "http://yarnball.ops.techteam.netapp.com:4873/is-plain-object/-/is-plain-object-2.0.4.tgz#2c163b3fafb1b606d9d17928f05c2a1c38e07677"
-  dependencies:
-    isobject "^3.0.1"
 
 is-promise@^2.1.0:
   version "2.1.0"
@@ -985,10 +918,6 @@ is-resolvable@^1.0.0:
   dependencies:
     tryit "^1.0.1"
 
-is-stream@^1.0.1:
-  version "1.1.0"
-  resolved "http://yarnball.ops.techteam.netapp.com:4873/is-stream/-/is-stream-1.1.0.tgz#12d4a3dd4e68e0b79ceb8dbc84173ae80d91ca44"
-
 is-symbol@^1.0.1:
   version "1.0.1"
   resolved "http://yarnball.ops.techteam.netapp.com:4873/is-symbol/-/is-symbol-1.0.1.tgz#3cc59f00025194b6ab2e38dbae6689256b660572"
@@ -1000,17 +929,6 @@ isarray@^1.0.0, isarray@~1.0.0:
 isexe@^2.0.0:
   version "2.0.0"
   resolved "http://yarnball.ops.techteam.netapp.com:4873/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
-
-isobject@^3.0.1:
-  version "3.0.1"
-  resolved "http://yarnball.ops.techteam.netapp.com:4873/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
-
-isomorphic-fetch@^2.1.1:
-  version "2.2.1"
-  resolved "http://yarnball.ops.techteam.netapp.com:4873/isomorphic-fetch/-/isomorphic-fetch-2.2.1.tgz#611ae1acf14f5e81f729507472819fe9733558a9"
-  dependencies:
-    node-fetch "^1.0.1"
-    whatwg-fetch ">=0.10.0"
 
 js-string-escape@1.0.1:
   version "1.0.1"
@@ -1085,12 +1003,6 @@ lodash.cond@^4.3.0:
 lodash@^4.0.0, lodash@^4.17.1, lodash@^4.17.4, lodash@^4.3.0, lodash@^4.5.1:
   version "4.17.4"
   resolved "http://yarnball.ops.techteam.netapp.com:4873/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
-
-loose-envify@^1.0.0, loose-envify@^1.3.1:
-  version "1.3.1"
-  resolved "http://yarnball.ops.techteam.netapp.com:4873/loose-envify/-/loose-envify-1.3.1.tgz#d1a8ad33fa9ce0e713d65fdd0ac8b748d478c848"
-  dependencies:
-    js-tokens "^3.0.0"
 
 lru-cache@^4.0.1:
   version "4.1.1"
@@ -1171,13 +1083,6 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "http://yarnball.ops.techteam.netapp.com:4873/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
-node-fetch@^1.0.1:
-  version "1.7.2"
-  resolved "http://yarnball.ops.techteam.netapp.com:4873/node-fetch/-/node-fetch-1.7.2.tgz#c54e9aac57e432875233525f3c891c4159ffefd7"
-  dependencies:
-    encoding "^0.1.11"
-    is-stream "^1.0.1"
-
 normalize-package-data@^2.3.2:
   version "2.4.0"
   resolved "http://yarnball.ops.techteam.netapp.com:4873/normalize-package-data/-/normalize-package-data-2.4.0.tgz#12f95a307d58352075a04907b84ac8be98ac012f"
@@ -1187,7 +1092,7 @@ normalize-package-data@^2.3.2:
     semver "2 || 3 || 4 || 5"
     validate-npm-package-license "^3.0.1"
 
-object-assign@^4.0.1, object-assign@^4.1.0:
+object-assign@^4.0.1:
   version "4.1.1"
   resolved "http://yarnball.ops.techteam.netapp.com:4873/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
 
@@ -1370,10 +1275,6 @@ pluralize@^4.0.0:
   version "4.0.0"
   resolved "http://yarnball.ops.techteam.netapp.com:4873/pluralize/-/pluralize-4.0.0.tgz#59b708c1c0190a2f692f1c7618c446b052fd1762"
 
-postcss-value-parser@^3.3.0:
-  version "3.3.0"
-  resolved "http://yarnball.ops.techteam.netapp.com:4873/postcss-value-parser/-/postcss-value-parser-3.3.0.tgz#87f38f9f18f774a4ab4c8a232f5c5ce8872a9d15"
-
 postgres-array@~1.0.0:
   version "1.0.2"
   resolved "http://yarnball.ops.techteam.netapp.com:4873/postgres-array/-/postgres-array-1.0.2.tgz#8e0b32eb03bf77a5c0a7851e0441c169a256a238"
@@ -1403,19 +1304,6 @@ process-nextick-args@~1.0.6:
 progress@^2.0.0:
   version "2.0.0"
   resolved "http://yarnball.ops.techteam.netapp.com:4873/progress/-/progress-2.0.0.tgz#8a1be366bf8fc23db2bd23f10c6fe920b4389d1f"
-
-promise@^7.1.1:
-  version "7.3.1"
-  resolved "http://yarnball.ops.techteam.netapp.com:4873/promise/-/promise-7.3.1.tgz#064b72602b18f90f29192b8b1bc418ffd1ebd3bf"
-  dependencies:
-    asap "~2.0.3"
-
-prop-types@^15.5.4:
-  version "15.5.10"
-  resolved "http://yarnball.ops.techteam.netapp.com:4873/prop-types/-/prop-types-15.5.10.tgz#2797dfc3126182e3a95e3dfbb2e893ddd7456154"
-  dependencies:
-    fbjs "^0.8.9"
-    loose-envify "^1.3.1"
 
 proxy-addr@~1.1.5:
   version "1.1.5"
@@ -1598,10 +1486,6 @@ serve-static@1.12.4:
     parseurl "~1.3.1"
     send "0.15.4"
 
-setimmediate@^1.0.5:
-  version "1.0.5"
-  resolved "http://yarnball.ops.techteam.netapp.com:4873/setimmediate/-/setimmediate-1.0.5.tgz#290cbb232e306942d7d7ea9b83732ab7856f8285"
-
 setprototypeof@1.0.3:
   version "1.0.3"
   resolved "http://yarnball.ops.techteam.netapp.com:4873/setprototypeof/-/setprototypeof-1.0.3.tgz#66567e37043eeb4f04d91bd658c0cbefb55b8e04"
@@ -1699,24 +1583,6 @@ strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "http://yarnball.ops.techteam.netapp.com:4873/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
 
-styled-components@^2.1.2:
-  version "2.1.2"
-  resolved "http://yarnball.ops.techteam.netapp.com:4873/styled-components/-/styled-components-2.1.2.tgz#bb419978e1287c5d0d88fa9106b2dd75f66a324c"
-  dependencies:
-    buffer "^5.0.3"
-    css-to-react-native "^2.0.3"
-    fbjs "^0.8.9"
-    hoist-non-react-statics "^1.2.0"
-    is-function "^1.0.1"
-    is-plain-object "^2.0.1"
-    prop-types "^15.5.4"
-    stylis "^3.2.1"
-    supports-color "^3.2.3"
-
-stylis@^3.2.1:
-  version "3.2.8"
-  resolved "http://yarnball.ops.techteam.netapp.com:4873/stylis/-/stylis-3.2.8.tgz#9b23a3e06597f7944a3d9ae880d5796248b8784f"
-
 supports-color@^0.2.0:
   version "0.2.0"
   resolved "http://yarnball.ops.techteam.netapp.com:4873/supports-color/-/supports-color-0.2.0.tgz#d92de2694eb3f67323973d7ae3d8b55b4c22190a"
@@ -1803,10 +1669,6 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "http://yarnball.ops.techteam.netapp.com:4873/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
-ua-parser-js@^0.7.9:
-  version "0.7.14"
-  resolved "http://yarnball.ops.techteam.netapp.com:4873/ua-parser-js/-/ua-parser-js-0.7.14.tgz#110d53fa4c3f326c121292bbeac904d2e03387ca"
-
 uid-safe@~2.1.4:
   version "2.1.5"
   resolved "http://yarnball.ops.techteam.netapp.com:4873/uid-safe/-/uid-safe-2.1.5.tgz#2b3d5c7240e8fc2e58f8aa269e5ee49c0857bd3a"
@@ -1843,10 +1705,6 @@ validator@^6.3.0:
 vary@~1.1.1:
   version "1.1.1"
   resolved "http://yarnball.ops.techteam.netapp.com:4873/vary/-/vary-1.1.1.tgz#67535ebb694c1d52257457984665323f587e8d37"
-
-whatwg-fetch@>=0.10.0:
-  version "2.0.3"
-  resolved "http://yarnball.ops.techteam.netapp.com:4873/whatwg-fetch/-/whatwg-fetch-2.0.3.tgz#9c84ec2dcf68187ff00bc64e1274b442176e1c84"
 
 which@^1.2.9:
   version "1.3.0"
