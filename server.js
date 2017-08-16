@@ -37,12 +37,10 @@ if (process.env.NODE_ENV === 'production') {
 
 /* configure passport */
 passport.serializeUser((user, done) => {
-  console.log('SERIALIZE');
   done(null, user.id);
 });
 
 passport.deserializeUser((id, done) => {
-  console.log('DESERIALIZE', id);
   User.findOne({ where: { id } }).then((user) => {
     done(null, user);
   });
