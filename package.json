@@ -6,7 +6,8 @@
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "node server.js",
-    "client": "node start-client.js"
+    "client": "node start-client.js",
+    "test": "cd client && yarn test && cd .."
   },
   "repository": {
     "type": "git",
@@ -24,22 +25,22 @@
   "homepage": "https://gitlab.com/ryo-capricorn92/great-canine-creation-game#README",
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
-    "bluebird": "^3.5.0",
-    "body-parser": "^1.17.2",
-    "cookie-parser": "^1.4.3",
-    "express": "^4.15.4",
-    "express-session": "^1.15.5",
-    "passport": "^0.4.0",
-    "passport-local": "^1.0.0",
-    "pg": "^7.1.2",
-    "sequelize": "^4.4.7"
+    "bluebird": "^3.x.x",
+    "body-parser": "^1.x.x",
+    "cookie-parser": "^1.x.x",
+    "express": "^4.x.x",
+    "express-session": "^1.x.x",
+    "passport": "^0.4.x",
+    "passport-local": "^1.x.x",
+    "pg": "^7.x.x",
+    "sequelize": "^4.x.x"
   },
   "devDependencies": {
-    "concurrently": "^3.5.0",
-    "eslint": "^4.4.1",
-    "eslint-config-airbnb": "^15.1.0",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.2.0"
+    "concurrently": "^3.x.x",
+    "eslint": "^4.x.x",
+    "eslint-config-airbnb": "^15.x.x",
+    "eslint-plugin-import": "^2.x.x",
+    "eslint-plugin-jsx-a11y": "^6.x.x",
+    "eslint-plugin-react": "^7.x.x"
   }
 }
