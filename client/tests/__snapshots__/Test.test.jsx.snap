@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test renders 1`] = `
+<Test>
+  <div>
+    <styled.div>
+      <div
+        className="sc-bdVaJa fXhyaw"
+      >
+        <styled.span>
+          <span
+            className="sc-bwzfXH ldyXqg"
+          >
+            Meh
+          </span>
+        </styled.span>
+        <h2>
+          Welcome to React
+        </h2>
+      </div>
+    </styled.div>
+    <styled.p>
+      <p
+        className="sc-htpNat dXGfrz"
+      >
+        To get started, edit 
+        <code>
+          src/App.js
+        </code>
+         and save to reload.
+      </p>
+    </styled.p>
+  </div>
+</Test>
+`;
