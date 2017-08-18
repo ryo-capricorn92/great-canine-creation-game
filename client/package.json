@@ -3,18 +3,32 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "styled-components": "^2.1.2"
+    "react": "^15.x.x",
+    "react-dom": "^15.x.x",
+    "styled-components": "^2.x.x"
   },
   "devDependencies": {
-    "react-scripts": "1.0.11"
+    "babel-jest": "^20.x.x",
+    "enzyme": "^2.x.x",
+    "enzyme-to-json": "^1.x.x",
+    "jest": "^20.x.x",
+    "react-scripts": "1.x.x",
+    "react-test-renderer": "^15.x.x"
   },
   "proxy": "http://localhost:8080/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "jest --coverage",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/**/*.{jsx}",
+      "!**/node_modules/**"
+    ],
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/enzyme-to-json/serializer"
+    ]
   }
 }
