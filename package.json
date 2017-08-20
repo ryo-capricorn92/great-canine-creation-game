@@ -10,7 +10,8 @@
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "node server.js",
     "client": "node start-client.js",
-    "test": "cd client && npm run test && cd .."
+    "test": "cd client && npm run test && cd ..",
+    "heroku-postbuild": "npm --prefix client run prod-build && npm --prefix client run build"
   },
   "repository": {
     "type": "git",
