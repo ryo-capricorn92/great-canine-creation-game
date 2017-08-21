@@ -1,0 +1,38 @@
+image: kkarczmarczyk/node-yarn:latest
+
+test:
+  stage: test
+  script:
+    - yarn install
+    - yarn test
+  artifacts:
+    paths:
+      - coverage
+    expire_in: 30 days
+
+pages:
+  stage: deploy
+  dependencies:
+    - test
+  script:
+    - mv coverage/lcov-report public
+  artifacts:
+    paths:
+      - public
+    expire_in: 30 days
+  only:
+    - master
+
+deploy:
+  stage: deploy
+  script:
+    - git remote add -f target https://git.heroku.com/gccgame.git
+    - git config user.name "Ryo Wheatley - Deploy"
+    - git config user.email "ryo.capricorn92@gmail.com"
+    - git checkout master
+    - git push target master
+  environment:
+    name: Production
+    url: http://fusion.stg.techteam.netapp.com/
+  only:
+    - master
