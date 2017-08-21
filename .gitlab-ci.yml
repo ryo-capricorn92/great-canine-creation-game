@@ -3,7 +3,7 @@ image: kkarczmarczyk/node-yarn:latest
 test:
   stage: test
   script:
-    - yarn install
+    - yarn install-all
     - yarn test
   artifacts:
     paths:

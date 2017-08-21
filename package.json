@@ -13,7 +13,8 @@
     "server": "node server.js",
     "client": "node start-client.js",
     "test": "cd client && npm run test && cd ..",
-    "heroku-postbuild": "npm --prefix client run prod-build && npm --prefix client run build"
+    "heroku-postbuild": "npm --prefix client run prod-build && npm --prefix client run build",
+    "install-all": "yarn install && cd client && yarn install && cd .."
   },
   "repository": {
     "type": "git",
