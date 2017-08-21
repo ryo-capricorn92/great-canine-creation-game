@@ -9,6 +9,7 @@
   "dependencies": {
     "react": "^15.x.x",
     "react-dom": "^15.x.x",
+    "react-scripts": "^1.x.x",
     "styled-components": "^2.x.x"
   },
   "devDependencies": {
@@ -16,7 +17,6 @@
     "enzyme": "^2.x.x",
     "enzyme-to-json": "^1.x.x",
     "jest": "^20.x.x",
-    "react-scripts": "1.x.x",
     "react-test-renderer": "^15.x.x"
   },
   "proxy": "http://localhost:8080/",
