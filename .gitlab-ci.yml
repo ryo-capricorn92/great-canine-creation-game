@@ -33,6 +33,6 @@ deploy:
     - git push target master
   environment:
     name: Production
-    url: http://fusion.stg.techteam.netapp.com/
+    url: https://gccgame.herokuapp.com/
   only:
     - master
