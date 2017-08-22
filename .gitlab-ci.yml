@@ -1,5 +1,14 @@
 image: kkarczmarczyk/node-yarn:latest
 
+variables:
+  GIT_SSL_NO_VERIFY: "true"
+
+before_script:
+  - eval $(ssh-agent -s)
+  - ssh-add <(echo "$SSH_PRIVATE_KEY")
+  - mkdir -p ~/.ssh
+  - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+
 test:
   stage: test
   script:
@@ -26,7 +35,7 @@ pages:
 deploy:
   stage: deploy
   script:
-    - git remote add -f target https://git.heroku.com/gccgame.git
+    - git remote add -f target ssh://git@heroku.com/gccgame.git
     - git config user.name "Ryo Wheatley - Deploy"
     - git config user.email "ryo.capricorn92@gmail.com"
     - git checkout master
