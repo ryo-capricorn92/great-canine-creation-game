@@ -19,19 +19,6 @@ test:
       - coverage
     expire_in: 30 days
 
-pages:
-  stage: deploy
-  dependencies:
-    - test
-  script:
-    - mv coverage/lcov-report public
-  artifacts:
-    paths:
-      - public
-    expire_in: 30 days
-  only:
-    - master
-
 deploy:
   stage: deploy
   script:
