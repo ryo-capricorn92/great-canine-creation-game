@@ -1,35 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Test renders 1`] = `
-<Test>
+<All>
   <div>
-    <styled.div>
-      <div
-        className="sc-bdVaJa fXhyaw"
-      >
-        <styled.span>
-          <span
-            className="sc-bwzfXH ldyXqg"
-          >
-            Meh
-          </span>
-        </styled.span>
-        <h2>
-          Welcome to React
-        </h2>
-      </div>
-    </styled.div>
-    <styled.p>
-      <p
-        className="sc-htpNat dXGfrz"
-      >
-        To get started, edit 
-        <code>
-          src/App.js
-        </code>
-         and save to reload.
-      </p>
-    </styled.p>
+    <Component>
+      <styled.div>
+        <div
+          className="sc-bdVaJa ikIoLQ"
+        >
+          One
+        </div>
+      </styled.div>
+    </Component>
+    <Component>
+      <styled.div>
+        <div
+          className="sc-bdVaJa ikIoLQ"
+        >
+          Two
+        </div>
+      </styled.div>
+    </Component>
+    <Component>
+      <styled.div>
+        <div
+          className="sc-bdVaJa ikIoLQ"
+        >
+          Three
+        </div>
+      </styled.div>
+    </Component>
   </div>
-</Test>
+</All>
 `;
