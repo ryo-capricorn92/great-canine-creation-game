@@ -1,7 +1,10 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import { BrowserRouter, Route } from 'react-router-dom';
+
 import logo from './logo.svg';
+import Test, { One, Two, Three } from './presentation/Test';
 
 const appLogoSpin = keyframes`
   from { transform: rotate(0deg); }
@@ -29,15 +32,21 @@ const Intro = styled.p`
 `;
 
 const App = () => (
-  <Container>
-    <Header>
-      <Logo src={logo} className="App-logo" alt="logo" />
-      <h2>Welcome to React</h2>
-    </Header>
-    <Intro>
+  <BrowserRouter>
+    <Container>
+      <Header>
+        <Logo src={logo} className="App-logo" alt="logo" />
+        <h2>Welcome to React</h2>
+      </Header>
+      <Intro>
       To get started, edit <code>src/App.js</code> and save to reload.
-    </Intro>
-  </Container>
+      </Intro>
+      <Route exact path="/" component={Test} />
+      <Route path="/one" component={One} />
+      <Route path="/two" component={Two} />
+      <Route path="/three" component={Three} />
+    </Container>
+  </BrowserRouter>
 );
 
 export default App;

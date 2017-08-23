@@ -1,37 +1,25 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
-const appLogoSpin = keyframes`
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+const Display = styled.div`
+  background: #f0f0f0;
+  color: #dadada;
+  box-shadow: 1px 1px 3px rgba(54, 54, 54, 0.25);
+  padding: 15px;
+  text-align: center;
+  font-size: 14px;
 `;
 
-const Header = styled.div`
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-`;
-
-const Logo = styled.span`
-  animation: ${appLogoSpin} infinite 20s linear;
-  height: 80px;
-`;
-
-const Intro = styled.p`
-  font-size: large;
-`;
-
-const Test = () => (
+const All = () => (
   <div>
-    <Header>
-      <Logo>Meh</Logo>
-      <h2>Welcome to React</h2>
-    </Header>
-    <Intro>
-    To get started, edit <code>src/App.js</code> and save to reload.
-    </Intro>
+    <One />
+    <Two />
+    <Three />
   </div>
 );
 
-export default Test;
+export default All;
+
+export const One = () => <Display>One</Display>;
+export const Two = () => <Display>Two</Display>;
+export const Three = () => <Display>Three</Display>;
