@@ -17,6 +17,7 @@ const App = () => (
       <Route path="/one" component={One} />
       <Route path="/two" component={Two} />
       <Route path="/three" component={Three} />
+      <Route path="/signup" component={Signup} />
     </Container>
   </BrowserRouter>
 );

@@ -1,0 +1,170 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Signup renders 1`] = `
+<Signup>
+  <styled.div>
+    <div
+      className="sc-bdVaJa cxMafI"
+    >
+      <form>
+        <table>
+          <tbody>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="username"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="username"
+                    >
+                      Username:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb kFSGKt"
+                >
+                  <input
+                    name="username"
+                  />
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="password"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="password"
+                    >
+                      Password:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb kFSGKt"
+                >
+                  <input
+                    name="password"
+                    type="password"
+                  />
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="email"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="email"
+                    >
+                      Email:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb kFSGKt"
+                >
+                  <input
+                    name="email"
+                    type="email"
+                  />
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="email_confirm"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="email_confirm"
+                    >
+                      Confirm Email:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb kFSGKt"
+                >
+                  <input
+                    name="email_confirm"
+                    type="email"
+                  />
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="birthday"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="birthday"
+                    >
+                      Birthday:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb kFSGKt"
+                >
+                  <input
+                    name="birthday"
+                    type="date"
+                  />
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-ifAKCX gYKwRG"
+                  colSpan="2"
+                >
+                  <input
+                    type="submit"
+                    value="Submit"
+                  />
+                </td>
+              </styled.td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </styled.div>
+</Signup>
+`;
