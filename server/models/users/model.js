@@ -5,6 +5,13 @@ const db = require('../../db');
 
 /* User model */
 const User = db.define('user', {
+  email: {
+    type: Sequelize.STRING,
+    validate: {
+      notEmpty: true,
+    },
+    primaryKey: true,
+  },
   username: {
     type: Sequelize.STRING,
     validate: {
