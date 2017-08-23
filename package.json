@@ -1,6 +1,6 @@
 {
   "name": "great-canine-creation-game",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A canine genetics game",
   "main": "server.js",
   "engines": {
