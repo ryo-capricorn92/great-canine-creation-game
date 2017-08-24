@@ -20,6 +20,7 @@ const LabelCell = styled.td`
 `;
 
 const InputCell = styled.td`
+  position: relative;
   padding: 3px;
 `;
 
@@ -27,6 +28,19 @@ const SubmitCell = styled.td.attrs({
   colSpan: '2',
 })`
   padding: 5px;
+`;
+
+const Icon = styled.i`
+  position: absolute;
+  left: 100%;
+
+  &.fa-close {
+    color: red;
+  }
+
+  &.fa-check {
+    color: green;
+  }
 `;
 
 class Signup extends React.Component {
@@ -131,7 +145,7 @@ class Signup extends React.Component {
                 </LabelCell>
                 <InputCell>
                   <input name="username" onBlur={this.checkUsername} required />
-                  {this.state.status.username}
+                  <Icon className={`fa fa-${this.state.status.username}`} aria-hidden="true" />
                 </InputCell>
               </tr>
               <tr>
@@ -148,7 +162,7 @@ class Signup extends React.Component {
                 </LabelCell>
                 <InputCell>
                   <input name="email" type="email" onBlur={this.checkEmail} required />
-                  {this.state.status.email}
+                  <Icon className={`fa fa-${this.state.status.email}`} aria-hidden="true" />
                 </InputCell>
               </tr>
               <tr>
