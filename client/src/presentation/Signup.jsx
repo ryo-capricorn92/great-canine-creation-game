@@ -57,6 +57,7 @@ class Signup extends React.Component {
 
     this.checkUsername = this.checkUsername.bind(this);
     this.checkEmail = this.checkEmail.bind(this);
+    this.checkPassword = this.checkPassword.bind(this);
   }
 
   checkUsername(event) {
@@ -87,23 +88,36 @@ class Signup extends React.Component {
     let status = Object.assign({}, this.state.status);
     if (!event.target.value.trim()) {
       status.email = '';
-      return this.setState({ status });
-    }
-    status.email = 'circle-o-notch fa-spin';
-    this.setState({ status });
+      this.setState({ status });
+    } else {
+      status.email = 'circle-o-notch fa-spin';
+      this.setState({ status });
 
-    fetch(`/check/email/${event.target.value}`)
-      .then(res => res.json())
-      .then((res) => {
-        status = Object.assign({}, this.state.status);
-        console.log(res);
-        if (res.emailIsUsed) {
-          status.email = 'close';
-        } else {
-          status.email = 'check';
-        }
-        this.setState({ status });
-      });
+      fetch(`/check/email/${event.target.value}`)
+        .then(res => res.json())
+        .then((res) => {
+          status = Object.assign({}, this.state.status);
+          console.log(res);
+          if (res.emailIsUsed) {
+            status.email = 'close';
+          } else {
+            status.email = 'check';
+          }
+          this.setState({ status });
+        });
+    }
+  }
+
+  checkPassword(event) {
+    const status = Object.assign({}, this.state.status);
+    if (!event.target.value.trim()) {
+      status.password = '';
+    } else if (/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(event.target.value)) {
+      status.password = 'check';
+    } else {
+      status.password = 'close';
+    }
+    this.setState({ status });
   }
 
   render() {
@@ -153,7 +167,8 @@ class Signup extends React.Component {
                   <Label htmlFor="password">Password:</Label>
                 </LabelCell>
                 <InputCell>
-                  <input name="password" type="password" required />
+                  <input name="password" type="password" onBlur={this.checkPassword} required />
+                  <Icon className={`fa fa-${this.state.status.password}`} aria-hidden="true" />
                 </InputCell>
               </tr>
               <tr>
