@@ -47,9 +47,11 @@ class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      email: '',
       status: {
         username: '',
         email: '',
+        emailConfirm: '',
         password: '',
         birthday: '',
       },
@@ -57,6 +59,7 @@ class Signup extends React.Component {
 
     this.checkUsername = this.checkUsername.bind(this);
     this.checkEmail = this.checkEmail.bind(this);
+    this.checkConfirmEmail = this.checkConfirmEmail.bind(this);
     this.checkPassword = this.checkPassword.bind(this);
   }
 
@@ -85,15 +88,16 @@ class Signup extends React.Component {
   }
 
   checkEmail(event) {
+    const email = event.target.value;
     let status = Object.assign({}, this.state.status);
     if (!event.target.value.trim()) {
       status.email = '';
-      this.setState({ status });
+      this.setState({ email, status });
     } else {
       status.email = 'circle-o-notch fa-spin';
-      this.setState({ status });
+      this.setState({ email, status });
 
-      fetch(`/check/email/${event.target.value}`)
+      fetch(`/check/email/${email}`)
         .then(res => res.json())
         .then((res) => {
           status = Object.assign({}, this.state.status);
@@ -103,9 +107,21 @@ class Signup extends React.Component {
           } else {
             status.email = 'check';
           }
-          this.setState({ status });
+          this.setState({ email, status });
         });
     }
+  }
+
+  checkConfirmEmail(event) {
+    const status = Object.assign({}, this.state.status);
+    if (this.state.status.email === 'close' || !event.target.value.trim()) {
+      status.emailConfirm = '';
+    } else if (event.target.value === this.state.email) {
+      status.emailConfirm = 'check';
+    } else {
+      status.emailConfirm = 'close';
+    }
+    this.setState({ status });
   }
 
   checkPassword(event) {
@@ -185,7 +201,8 @@ class Signup extends React.Component {
                   <Label htmlFor="email_confirm">Confirm Email:</Label>
                 </LabelCell>
                 <InputCell>
-                  <input name="email_confirm" required />
+                  <input name="email_confirm" onBlur={this.checkConfirmEmail} autoComplete="off" required />
+                  <Icon className={`fa fa-${this.state.status.emailConfirm}`} aria-hidden="true" />
                 </InputCell>
               </tr>
               <tr>
