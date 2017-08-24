@@ -10,7 +10,8 @@ module.exports = (app, passport) => {
     successRedirect: '/success',
     failureRedirect: '/failure',
   }));
-  app.get('/test', userRoutes.test);
+  app.get('/api/check/username/:username', userRoutes.checkUsername);
+  app.get('/api/check/email/:email', userRoutes.checkEmail);
 };
 
 /*
