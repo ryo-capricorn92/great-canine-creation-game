@@ -33,13 +33,63 @@ class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
-      usernameUsed: false,
-      email: '',
-      confirmEmail: '',
-      emailUsed: false,
-      birthday: '',
+      status: {
+        username: '',
+        email: '',
+        password: '',
+        birthday: '',
+      },
     };
+
+    this.checkUsername = this.checkUsername.bind(this);
+    this.checkEmail = this.checkEmail.bind(this);
+  }
+
+  checkUsername(event) {
+    let status = Object.assign({}, this.state.status);
+    if (!event.target.value.trim()) {
+      status.username = '';
+      this.setState({ status });
+    } else {
+      status.username = 'circle-o-notch fa-spin';
+      this.setState({ status });
+
+      fetch(`/check/username/${event.target.value}`)
+        .then(res => res.json())
+        .then((res) => {
+          status = Object.assign({}, this.state.status);
+          console.log(res);
+          if (res.usernameIsUsed) {
+            status.username = 'close';
+          } else {
+            status.username = 'check';
+          }
+          this.setState({ status });
+        });
+    }
+  }
+
+  checkEmail(event) {
+    let status = Object.assign({}, this.state.status);
+    if (!event.target.value.trim()) {
+      status.email = '';
+      return this.setState({ status });
+    }
+    status.email = 'circle-o-notch fa-spin';
+    this.setState({ status });
+
+    fetch(`/check/email/${event.target.value}`)
+      .then(res => res.json())
+      .then((res) => {
+        status = Object.assign({}, this.state.status);
+        console.log(res);
+        if (res.emailIsUsed) {
+          status.email = 'close';
+        } else {
+          status.email = 'check';
+        }
+        this.setState({ status });
+      });
   }
 
   render() {
@@ -80,7 +130,8 @@ class Signup extends React.Component {
                   <Label htmlFor="username">Username:</Label>
                 </LabelCell>
                 <InputCell>
-                  <input name="username" required />
+                  <input name="username" onBlur={this.checkUsername} required />
+                  {this.state.status.username}
                 </InputCell>
               </tr>
               <tr>
@@ -96,7 +147,8 @@ class Signup extends React.Component {
                   <Label htmlFor="email">Email:</Label>
                 </LabelCell>
                 <InputCell>
-                  <input name="email" type="email" required />
+                  <input name="email" type="email" onBlur={this.checkEmail} required />
+                  {this.state.status.email}
                 </InputCell>
               </tr>
               <tr>
