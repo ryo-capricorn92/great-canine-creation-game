@@ -51,16 +51,17 @@ passport.use('local-signup', new LocalStrategy({
   passwordField: 'password',
   passReqToCallback: true,
 }, (req, username, password, done) => { // eslint-disable-line consistent-return
+  console.log(req.body);
   if (!username || !password) {
     return done(null, false, { message: 'Username and password is required' });
   }
 
-  User.findOne({ where: { username } }).then((user) => {
-    if (user) {
-      return done(null, false, { message: 'Username is taken.' });
+  User.isEmailOrUsernameTake(req.body.email, username).then((isTaken) => {
+    if (isTaken) {
+      return done(null, false, { message: 'Username or email is taken.' });
     }
 
-    return User.create({ username, password: User.generateHash(password) })
+    return User.create({ username, password: User.generateHash(password), email: req.body.email })
       .then(newUser => req.session.save(() => done(null, newUser)));
   });
 }));
