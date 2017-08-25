@@ -111,7 +111,7 @@ class Signup extends React.Component {
       status.username = 'circle-o-notch fa-spin';
       this.setState({ message, status });
 
-      fetch(`/check/username/${event.target.value}`)
+      fetch(`api/check/username/${event.target.value}`)
         .then(res => res.json())
         .then((res) => {
           status = Object.assign({}, this.state.status);
@@ -137,7 +137,7 @@ class Signup extends React.Component {
       status.email = 'circle-o-notch fa-spin';
       this.setState({ email, message, status });
 
-      fetch(`/check/email/${email}`)
+      fetch(`api/check/email/${email}`)
         .then(res => res.json())
         .then((res) => {
           status = Object.assign({}, this.state.status);
