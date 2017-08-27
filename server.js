@@ -51,16 +51,26 @@ passport.use('local-signup', new LocalStrategy({
   passwordField: 'password',
   passReqToCallback: true,
 }, (req, username, password, done) => { // eslint-disable-line consistent-return
-  if (!username || !password) {
-    return done(null, false, { message: 'Username and password is required' });
+  const email = req.body.email;
+  const ThirteenYearsAgo = new Date(new Date().setFullYear(new Date().getFullYear() - 13));
+  if (!username || !password || !email) {
+    return done(null, false, { message: 'Username, email, and password is required' });
   }
 
-  User.findOne({ where: { username } }).then((user) => {
-    if (user) {
-      return done(null, false, { message: 'Username is taken.' });
+  if (password.length < 8) {
+    return done(null, false, { message: 'Password must be at least 8 characters' });
+  }
+
+  if (new Date(req.body.birthday) > ThirteenYearsAgo) {
+    return done(null, false, { message: 'You must be 13 or older to signup for an account' });
+  }
+
+  User.isEmailOrUsernameTake(email, username).then((isTaken) => {
+    if (isTaken) {
+      return done(null, false, { message: 'Username or email is taken.' });
     }
 
-    return User.create({ username, password: User.generateHash(password) })
+    return User.create({ username, password: User.generateHash(password), email })
       .then(newUser => req.session.save(() => done(null, newUser)));
   });
 }));

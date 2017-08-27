@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const db = require('../../db');
 
 const Dog = db.define('dog', {
-  uuid: {
+  id: {
     type: Sequelize.UUID,
     defaultValue: Sequelize.UUIDV1,
     primaryKey: true,
