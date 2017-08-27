@@ -115,7 +115,6 @@ class Signup extends React.Component {
         .then(res => res.json())
         .then((res) => {
           status = Object.assign({}, this.state.status);
-          console.log(res);
           if (res.usernameIsUsed) {
             status.username = 'close';
           } else {
@@ -141,7 +140,6 @@ class Signup extends React.Component {
         .then(res => res.json())
         .then((res) => {
           status = Object.assign({}, this.state.status);
-          console.log(res);
           if (res.emailIsUsed) {
             status.email = 'close';
           } else {

@@ -1,12 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Signup renders 1`] = `
+exports[`Signup should "submit" a valid form properly 1`] = `
 <Signup>
   <styled.div>
     <div
-      className="sc-bdVaJa cxMafI"
+      className="sc-bdVaJa iBeQiE"
     >
-      <form>
+      <form
+        onSubmit={[Function]}
+      >
         <table>
           <tbody>
             <tr>
@@ -28,11 +30,22 @@ exports[`Signup renders 1`] = `
               </styled.td>
               <styled.td>
                 <td
-                  className="sc-bxivhb kFSGKt"
+                  className="sc-bxivhb iydZbq"
                 >
                   <input
                     name="username"
+                    onBlur={[Function]}
+                    required={true}
                   />
+                  <styled.i
+                    aria-hidden="true"
+                    className="fa fa-check"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa-check sc-EHOje PwXHY"
+                    />
+                  </styled.i>
                 </td>
               </styled.td>
             </tr>
@@ -55,12 +68,23 @@ exports[`Signup renders 1`] = `
               </styled.td>
               <styled.td>
                 <td
-                  className="sc-bxivhb kFSGKt"
+                  className="sc-bxivhb iydZbq"
                 >
                   <input
                     name="password"
+                    onBlur={[Function]}
+                    required={true}
                     type="password"
                   />
+                  <styled.i
+                    aria-hidden="true"
+                    className="fa fa-check"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa-check sc-EHOje PwXHY"
+                    />
+                  </styled.i>
                 </td>
               </styled.td>
             </tr>
@@ -83,12 +107,23 @@ exports[`Signup renders 1`] = `
               </styled.td>
               <styled.td>
                 <td
-                  className="sc-bxivhb kFSGKt"
+                  className="sc-bxivhb iydZbq"
                 >
                   <input
                     name="email"
+                    onBlur={[Function]}
+                    required={true}
                     type="email"
                   />
+                  <styled.i
+                    aria-hidden="true"
+                    className="fa fa-check"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa-check sc-EHOje PwXHY"
+                    />
+                  </styled.i>
                 </td>
               </styled.td>
             </tr>
@@ -111,12 +146,23 @@ exports[`Signup renders 1`] = `
               </styled.td>
               <styled.td>
                 <td
-                  className="sc-bxivhb kFSGKt"
+                  className="sc-bxivhb iydZbq"
                 >
                   <input
+                    autoComplete="off"
                     name="email_confirm"
-                    type="email"
+                    onBlur={[Function]}
+                    required={true}
                   />
+                  <styled.i
+                    aria-hidden="true"
+                    className="fa fa-check"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa-check sc-EHOje PwXHY"
+                    />
+                  </styled.i>
                 </td>
               </styled.td>
             </tr>
@@ -139,10 +185,1307 @@ exports[`Signup renders 1`] = `
               </styled.td>
               <styled.td>
                 <td
-                  className="sc-bxivhb kFSGKt"
+                  className="sc-bxivhb iydZbq"
                 >
                   <input
                     name="birthday"
+                    required={true}
+                    type="date"
+                  />
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-ifAKCX gYKwRG"
+                  colSpan="2"
+                >
+                  <input
+                    type="submit"
+                    value="Submit"
+                  />
+                </td>
+              </styled.td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </styled.div>
+</Signup>
+`;
+
+exports[`Signup should render Signup without failing 1`] = `
+<Signup>
+  <styled.div>
+    <div
+      className="sc-bdVaJa iBeQiE"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <table>
+          <tbody>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="username"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="username"
+                    >
+                      Username:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    name="username"
+                    onBlur={[Function]}
+                    required={true}
+                  />
+                  <styled.i
+                    aria-hidden="true"
+                    className="fa fa-"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa- sc-EHOje PwXHY"
+                    />
+                  </styled.i>
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="password"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="password"
+                    >
+                      Password:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    name="password"
+                    onBlur={[Function]}
+                    required={true}
+                    type="password"
+                  />
+                  <styled.i
+                    aria-hidden="true"
+                    className="fa fa-"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa- sc-EHOje PwXHY"
+                    />
+                  </styled.i>
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="email"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="email"
+                    >
+                      Email:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    name="email"
+                    onBlur={[Function]}
+                    required={true}
+                    type="email"
+                  />
+                  <styled.i
+                    aria-hidden="true"
+                    className="fa fa-"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa- sc-EHOje PwXHY"
+                    />
+                  </styled.i>
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="email_confirm"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="email_confirm"
+                    >
+                      Confirm Email:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    autoComplete="off"
+                    name="email_confirm"
+                    onBlur={[Function]}
+                    required={true}
+                  />
+                  <styled.i
+                    aria-hidden="true"
+                    className="fa fa-"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa- sc-EHOje PwXHY"
+                    />
+                  </styled.i>
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="birthday"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="birthday"
+                    >
+                      Birthday:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    name="birthday"
+                    required={true}
+                    type="date"
+                  />
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-ifAKCX gYKwRG"
+                  colSpan="2"
+                >
+                  <input
+                    type="submit"
+                    value="Submit"
+                  />
+                </td>
+              </styled.td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </styled.div>
+</Signup>
+`;
+
+exports[`Signup should show close icon if the email is taken 1`] = `
+<Signup>
+  <styled.div>
+    <div
+      className="sc-bdVaJa iBeQiE"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <table>
+          <tbody>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="username"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="username"
+                    >
+                      Username:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    name="username"
+                    onBlur={[Function]}
+                    required={true}
+                  />
+                  <styled.i
+                    aria-hidden="true"
+                    className="fa fa-"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa- sc-EHOje PwXHY"
+                    />
+                  </styled.i>
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="password"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="password"
+                    >
+                      Password:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    name="password"
+                    onBlur={[Function]}
+                    required={true}
+                    type="password"
+                  />
+                  <styled.i
+                    aria-hidden="true"
+                    className="fa fa-"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa- sc-EHOje PwXHY"
+                    />
+                  </styled.i>
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="email"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="email"
+                    >
+                      Email:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    name="email"
+                    onBlur={[Function]}
+                    required={true}
+                    type="email"
+                  />
+                  <styled.i
+                    aria-hidden="true"
+                    className="fa fa-close"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa-close sc-EHOje PwXHY"
+                    />
+                  </styled.i>
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="email_confirm"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="email_confirm"
+                    >
+                      Confirm Email:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    autoComplete="off"
+                    name="email_confirm"
+                    onBlur={[Function]}
+                    required={true}
+                  />
+                  <styled.i
+                    aria-hidden="true"
+                    className="fa fa-"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa- sc-EHOje PwXHY"
+                    />
+                  </styled.i>
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="birthday"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="birthday"
+                    >
+                      Birthday:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    name="birthday"
+                    required={true}
+                    type="date"
+                  />
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-ifAKCX gYKwRG"
+                  colSpan="2"
+                >
+                  <input
+                    type="submit"
+                    value="Submit"
+                  />
+                </td>
+              </styled.td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </styled.div>
+</Signup>
+`;
+
+exports[`Signup should show close icon if the emails don't match 1`] = `
+<Signup>
+  <styled.div>
+    <div
+      className="sc-bdVaJa iBeQiE"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <table>
+          <tbody>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="username"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="username"
+                    >
+                      Username:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    name="username"
+                    onBlur={[Function]}
+                    required={true}
+                  />
+                  <styled.i
+                    aria-hidden="true"
+                    className="fa fa-"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa- sc-EHOje PwXHY"
+                    />
+                  </styled.i>
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="password"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="password"
+                    >
+                      Password:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    name="password"
+                    onBlur={[Function]}
+                    required={true}
+                    type="password"
+                  />
+                  <styled.i
+                    aria-hidden="true"
+                    className="fa fa-"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa- sc-EHOje PwXHY"
+                    />
+                  </styled.i>
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="email"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="email"
+                    >
+                      Email:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    name="email"
+                    onBlur={[Function]}
+                    required={true}
+                    type="email"
+                  />
+                  <styled.i
+                    aria-hidden="true"
+                    className="fa fa-circle-o-notch fa-spin"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa-circle-o-notch fa-spin sc-EHOje PwXHY"
+                    />
+                  </styled.i>
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="email_confirm"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="email_confirm"
+                    >
+                      Confirm Email:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    autoComplete="off"
+                    name="email_confirm"
+                    onBlur={[Function]}
+                    required={true}
+                  />
+                  <styled.i
+                    aria-hidden="true"
+                    className="fa fa-close"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa-close sc-EHOje PwXHY"
+                    />
+                  </styled.i>
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="birthday"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="birthday"
+                    >
+                      Birthday:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    name="birthday"
+                    required={true}
+                    type="date"
+                  />
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-ifAKCX gYKwRG"
+                  colSpan="2"
+                >
+                  <input
+                    type="submit"
+                    value="Submit"
+                  />
+                </td>
+              </styled.td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </styled.div>
+</Signup>
+`;
+
+exports[`Signup should show close icon if username is taken 1`] = `
+<Signup>
+  <styled.div>
+    <div
+      className="sc-bdVaJa iBeQiE"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <table>
+          <tbody>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="username"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="username"
+                    >
+                      Username:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    name="username"
+                    onBlur={[Function]}
+                    required={true}
+                  />
+                  <styled.i
+                    aria-hidden="true"
+                    className="fa fa-close"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa-close sc-EHOje PwXHY"
+                    />
+                  </styled.i>
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="password"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="password"
+                    >
+                      Password:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    name="password"
+                    onBlur={[Function]}
+                    required={true}
+                    type="password"
+                  />
+                  <styled.i
+                    aria-hidden="true"
+                    className="fa fa-"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa- sc-EHOje PwXHY"
+                    />
+                  </styled.i>
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="email"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="email"
+                    >
+                      Email:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    name="email"
+                    onBlur={[Function]}
+                    required={true}
+                    type="email"
+                  />
+                  <styled.i
+                    aria-hidden="true"
+                    className="fa fa-"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa- sc-EHOje PwXHY"
+                    />
+                  </styled.i>
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="email_confirm"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="email_confirm"
+                    >
+                      Confirm Email:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    autoComplete="off"
+                    name="email_confirm"
+                    onBlur={[Function]}
+                    required={true}
+                  />
+                  <styled.i
+                    aria-hidden="true"
+                    className="fa fa-"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa- sc-EHOje PwXHY"
+                    />
+                  </styled.i>
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="birthday"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="birthday"
+                    >
+                      Birthday:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    name="birthday"
+                    required={true}
+                    type="date"
+                  />
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-ifAKCX gYKwRG"
+                  colSpan="2"
+                >
+                  <input
+                    type="submit"
+                    value="Submit"
+                  />
+                </td>
+              </styled.td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </styled.div>
+</Signup>
+`;
+
+exports[`Signup should show no icon for email confirm when email taken even if it matches 1`] = `
+<Signup>
+  <styled.div>
+    <div
+      className="sc-bdVaJa iBeQiE"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <table>
+          <tbody>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="username"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="username"
+                    >
+                      Username:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    name="username"
+                    onBlur={[Function]}
+                    required={true}
+                  />
+                  <styled.i
+                    aria-hidden="true"
+                    className="fa fa-"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa- sc-EHOje PwXHY"
+                    />
+                  </styled.i>
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="password"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="password"
+                    >
+                      Password:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    name="password"
+                    onBlur={[Function]}
+                    required={true}
+                    type="password"
+                  />
+                  <styled.i
+                    aria-hidden="true"
+                    className="fa fa-"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa- sc-EHOje PwXHY"
+                    />
+                  </styled.i>
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="email"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="email"
+                    >
+                      Email:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    name="email"
+                    onBlur={[Function]}
+                    required={true}
+                    type="email"
+                  />
+                  <styled.i
+                    aria-hidden="true"
+                    className="fa fa-close"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa-close sc-EHOje PwXHY"
+                    />
+                  </styled.i>
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="email_confirm"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="email_confirm"
+                    >
+                      Confirm Email:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    autoComplete="off"
+                    name="email_confirm"
+                    onBlur={[Function]}
+                    required={true}
+                  />
+                  <styled.i
+                    aria-hidden="true"
+                    className="fa fa-"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa- sc-EHOje PwXHY"
+                    />
+                  </styled.i>
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="birthday"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="birthday"
+                    >
+                      Birthday:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    name="birthday"
+                    required={true}
+                    type="date"
+                  />
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-ifAKCX gYKwRG"
+                  colSpan="2"
+                >
+                  <input
+                    type="submit"
+                    value="Submit"
+                  />
+                </td>
+              </styled.td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </styled.div>
+</Signup>
+`;
+
+exports[`Signup should show no icon for username/email/password if empty 1`] = `
+<Signup>
+  <styled.div>
+    <div
+      className="sc-bdVaJa iBeQiE"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <table>
+          <tbody>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="username"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="username"
+                    >
+                      Username:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    name="username"
+                    onBlur={[Function]}
+                    required={true}
+                  />
+                  <styled.i
+                    aria-hidden="true"
+                    className="fa fa-"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa- sc-EHOje PwXHY"
+                    />
+                  </styled.i>
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="password"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="password"
+                    >
+                      Password:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    name="password"
+                    onBlur={[Function]}
+                    required={true}
+                    type="password"
+                  />
+                  <styled.i
+                    aria-hidden="true"
+                    className="fa fa-"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa- sc-EHOje PwXHY"
+                    />
+                  </styled.i>
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="email"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="email"
+                    >
+                      Email:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    name="email"
+                    onBlur={[Function]}
+                    required={true}
+                    type="email"
+                  />
+                  <styled.i
+                    aria-hidden="true"
+                    className="fa fa-"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa- sc-EHOje PwXHY"
+                    />
+                  </styled.i>
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="email_confirm"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="email_confirm"
+                    >
+                      Confirm Email:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    autoComplete="off"
+                    name="email_confirm"
+                    onBlur={[Function]}
+                    required={true}
+                  />
+                  <styled.i
+                    aria-hidden="true"
+                    className="fa fa-"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa- sc-EHOje PwXHY"
+                    />
+                  </styled.i>
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="birthday"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="birthday"
+                    >
+                      Birthday:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    name="birthday"
+                    required={true}
                     type="date"
                   />
                 </td>
