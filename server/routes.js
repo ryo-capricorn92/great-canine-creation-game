@@ -6,10 +6,16 @@ module.exports = (app, passport) => {
     successRedirect: '/success',
     failureRedirect: '/failure',
   }));
-  app.post('/api/login', passport.authenticate('local-login', {
-    successRedirect: '/success',
-    failureRedirect: '/failure',
-  }));
+  app.post('/api/login', passport.authenticate('local-login'), (req, res) => {
+    if (req.user) {
+      res.json({
+        loggedIn: true,
+        user: req.user,
+      });
+    } else {
+      res.json({ loggedIn: false });
+    }
+  });
   app.get('/api/isLoggedIn', (req, res) => {
     if (req.user) {
       res.json({

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -43,11 +44,58 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      redirect: false,
       message: '',
     };
+
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  onSubmit(event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const user = {
+      username: event.target.username.value.trim(),
+      password: event.target.password.value,
+    };
+
+    fetch('/api/login', {
+      method: 'POST',
+      body: JSON.stringify(user),
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'same-origin',
+    })
+      .then((response) => {
+        if (!response.ok) {
+          return {
+            status: response.statusText,
+            statusCode: response.status,
+          };
+        }
+        return response.json();
+      })
+      .then((data) => {
+        if (data.statusCode && data.statusCode !== 200) {
+          this.setState({
+            message: data.status,
+          });
+        } else {
+          this.setState({
+            redirect: true,
+          });
+        }
+      });
   }
 
   render() {
+    const { location } = this.props;
+    if (this.state.redirect) {
+      const { from } = location.state || { from: { pathname: '/' } };
+      return (
+        <Redirect to={from} />
+      );
+    }
     return (
       <Container>
         <form onSubmit={this.onSubmit}>
