@@ -1,5 +1,3 @@
-export const isAuthenticated = () => fetch('/api/isLoggedIn', { credentials: 'include' });
-
 export const requireAuth = () => fetch('/api/isLoggedIn', { credentials: 'include' })
   .then(response => response.json())
   .then((data) => {

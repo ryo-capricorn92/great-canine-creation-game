@@ -1,0 +1,268 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login should "submit" a valid form properly 1`] = `
+<Login>
+  <styled.div>
+    <div
+      className="sc-bdVaJa iBeQiE"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <table>
+          <tbody>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="username"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="username"
+                    >
+                      Username:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    name="username"
+                    required={true}
+                  />
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="password"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="password"
+                    >
+                      Password:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    name="password"
+                    required={true}
+                    type="password"
+                  />
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-ifAKCX gYKwRG"
+                  colSpan="2"
+                >
+                  <input
+                    type="submit"
+                    value="Submit"
+                  />
+                </td>
+              </styled.td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </styled.div>
+</Login>
+`;
+
+exports[`Login should alert the user if the username or password is wrong 1`] = `
+<Login>
+  <styled.div>
+    <div
+      className="sc-bdVaJa iBeQiE"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <table>
+          <tbody>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="username"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="username"
+                    >
+                      Username:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    name="username"
+                    required={true}
+                  />
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="password"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="password"
+                    >
+                      Password:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    name="password"
+                    required={true}
+                    type="password"
+                  />
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-ifAKCX gYKwRG"
+                  colSpan="2"
+                >
+                  <input
+                    type="submit"
+                    value="Submit"
+                  />
+                </td>
+              </styled.td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </styled.div>
+</Login>
+`;
+
+exports[`Login should render Login without failing 1`] = `
+<Login>
+  <styled.div>
+    <div
+      className="sc-bdVaJa iBeQiE"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <table>
+          <tbody>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="username"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="username"
+                    >
+                      Username:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    name="username"
+                    required={true}
+                  />
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-htpNat gZOKTT"
+                >
+                  <styled.label
+                    htmlFor="password"
+                  >
+                    <label
+                      className="sc-bwzfXH fGBoem"
+                      htmlFor="password"
+                    >
+                      Password:
+                    </label>
+                  </styled.label>
+                </td>
+              </styled.td>
+              <styled.td>
+                <td
+                  className="sc-bxivhb iydZbq"
+                >
+                  <input
+                    name="password"
+                    required={true}
+                    type="password"
+                  />
+                </td>
+              </styled.td>
+            </tr>
+            <tr>
+              <styled.td>
+                <td
+                  className="sc-ifAKCX gYKwRG"
+                  colSpan="2"
+                >
+                  <input
+                    type="submit"
+                    value="Submit"
+                  />
+                </td>
+              </styled.td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </styled.div>
+</Login>
+`;

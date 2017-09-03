@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import fetch from 'jest-fetch-mock';
 
-import Signup from '../src/presentation/Signup';
+import Signup from '../../src/presentation/Signup';
 
 global.fetch = fetch;
 
