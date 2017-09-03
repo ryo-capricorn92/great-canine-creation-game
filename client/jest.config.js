@@ -5,6 +5,8 @@ module.exports = {
     '!**/coverage/**',
     '!**/node_modules/**',
     '!**/tests/**',
+    '!**/src/utils/auth.js',
+    '!**/src/container/Restricted.jsx',
   ],
   coverageReporters: [
     'lcov',
