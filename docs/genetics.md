@@ -209,3 +209,34 @@
 | **TT** - *Roan* | Extreme ticking |
 | **Tt** - *Ticking* | Ticking |
 | **tt** - *Normal* | No Change |
+
+## Mutations
+
+Mutations are represented by 8 loci mapped to 8 different genetic mutations. Mutations are gained by
+a pup after both their parents have a copy of the same mutant RCM allele, of which there are 160.
+
+### RCM Alleles
+RCM (Random Chance Modifier) Alleles are alleles that do not directly cause genetic mutations. If two
+dogs with the same copy of an RCM allele are bred, the pups will have a 50% chance of having a het
+representation of the mutation the RCM maps to.
+| Range | Mutation | Mutation Locus |
+| ----- | -------- | -------------- |
+| 0 - 20 | Deafness | **Mu**[1] |
+| 21 - 40 | Blindness | **Mu**[2] |
+| 41 - 60 | Clubfoot | **Mu**[3] |
+| 61 - 80 | Cleft Palette | **Mu**[4] |
+| 81 - 100 | Hip Dysplasia | **Mu**[5] |
+| 101 - 120 | Seizures | **Mu**[6] |
+| 121 - 140 | Heart Murmur | **Mu**[7] |
+| 141 - 160 | Nuerologic | **Mu**[8] |
+
+### Example
+
+* If both Mom and Dad have `1` on RCM allele 72, the pups will have a 50% chance of having `Cc` on the **Mu**[4] Locus, giving them a cleft palette.
+* If Mom and Dad happen to have two sets of matching RCM alleles from the same **Mu**, the mutation locus will be homozygous dominant.
+
+### Chances
+
+* Generated dogs will have 1 RCM allele and a 50% chance of having a second.
+* Bred dogs will have a 5% chance of randomly gaining one mutant RCM allele.
+
