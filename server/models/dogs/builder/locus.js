@@ -1,4 +1,4 @@
-export const LOCUS = {
+const LOCUS = {
   A: {
     y: {
       phenotype: 'Sable',
@@ -260,4 +260,36 @@ export const LOCUS = {
   },
 };
 
-export default {};
+module.exports = {
+  _generateRandomLocus() {
+    const loci = {};
+    Object.keys(LOCUS).forEach((locus) => {
+      const alleles = Object.keys(LOCUS[locus]);
+      const alleleA = alleles[Math.floor(Math.random() * alleles.length)];
+      const alleleB = alleles[Math.floor(Math.random() * alleles.length)];
+      const pair = `${alleleA}${alleleB}`;
+      loci[locus] = pair
+        .split('')
+        .sort(sortByDominance(locus))
+        .join('');
+    });
+    this.loci = loci;
+    return loci;
+
+    function sortByDominance(currentLocus) {
+      return (a, b) => {
+        const locus = LOCUS[currentLocus];
+        if (locus[a].dominantTo.includes(b)) {
+          return -1;
+        }
+        if (locus[b].dominantTo.includes(a)) {
+          return 1;
+        }
+        if (a < b) {
+          return -1;
+        }
+        return 1;
+      };
+    }
+  },
+};
