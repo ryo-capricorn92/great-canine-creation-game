@@ -241,3 +241,11 @@ representation of the mutation the RCM maps to.
 * Generated dogs will have 1 RCM allele and a 50% chance of having a second.
 * Bred dogs will have a 5% chance of randomly gaining one mutant RCM allele.
 
+## Lethal/Trouble Genes
+
+| Gene | Description | Effect |
+| :--: | ----------- | ------ |
+| **MM** | Homozygous (double) merle | Deafness/Blindness |
+| **C-HH** | Double Hairless | Lethal |
+| **T-BB** | Homozygous Bobtail | Lethal |
+
