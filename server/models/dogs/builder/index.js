@@ -14,6 +14,7 @@ Object.assign(Builder.prototype, physique);
 
 Builder.prototype.buildRandomDog = function buildRandomDog() {
   this._generateRandomLocus();
+  this._generateLocusPhenotype();
   this._generateRandomRCM();
   this._generateRandomPhysique();
 };

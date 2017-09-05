@@ -292,4 +292,114 @@ module.exports = {
       };
     }
   },
+  _generateLocusPhenotype() {
+    /* MAP
+        eumelaninShade - what color are the eumelanin areas of the dog
+        eumelaninCoverage - How much area does the eumelanin cover
+        brindle - is the dog brindle
+        merle - is the dog merle
+        harlequin - is the dog harlequin (relies on merle)
+        ticking - what kind of ticking does the dog have, if any
+        deferToA - will alleles on the A locus show? (relies on kk on K locus)
+        phaeomelanin - what shade will any red be
+        whiteCoverage - what white will the dog have, if any
+        whiteModifier - if the dog has a homo recessive I locus, will it show as mantle
+    */
+
+    this.phenotype = {};
+
+    /* EUMELANIN */
+    /* --------- */
+
+    // SHADE
+    this.phenotype.eumelaninShade = 'black';
+    if (this.loci.B === 'bb') { // liver
+      this.phenotype.eumelaninShade = 'liver';
+    }
+    if (this.loci.D === 'dd') { // dilute
+      if (this.phenotype.eumelaninShade === 'black') {
+        this.phenotype.eumelaninShade = 'blue';
+      } else {
+        this.phenotype.eumelaninShade = 'isabella';
+      }
+    }
+
+    // COVERAGE
+    if (this.loci.K === 'bb' || this.loci.K === 'bk') {
+      this.phenotype.brindle = true;
+    }
+    if (this.loci.M === 'MM' || this.loci.M === 'Mm') {
+      this.phenotype.merle = true;
+    }
+    if (this.phenotype.merle && (this.loci.H === 'HH' || this.loci.H === 'Hh')) {
+      this.phenotype.harlequin = true;
+    }
+
+    this.phenotype.eumelaninCoverage = 'solid';
+    if (this.loci.E[0] === 'm') {
+      this.phenotype.eumelaninCoverage = 'mask';
+    } else if (this.loci.E[0] === 'g') {
+      this.phenotype.eumelaninCoverage = 'grizzle';
+    } else if (this.loci.E[0] === 'h') {
+      this.phenotype.eumelaninCoverage = 'spaniel sable';
+    } else if (this.loci.E === 'ee') {
+      this.phenotype.eumelaninCoverage = 'none';
+    }
+
+    // DEFER TO LOCUS A
+    if (this.loci.K === 'kk') {
+      this.phenotype.deferToA = true;
+    }
+
+    if (this.phenotype.deferToA && this.phenotype.eumelaninCoverage === 'solid') {
+      if (this.loci.A[0] === 'y') {
+        this.phenotype.eumelaninCoverage = 'sable';
+      } else if (this.loci.A[0] === 'w') {
+        this.phenotype.eumelaninCoverage = 'wolf sable';
+      } else if (this.loci.A[0] === 't') {
+        this.phenotype.eumelaninCoverage = 'tan points';
+      }
+    }
+
+    // TICKING
+    if (this.loci.T === 'TT') {
+      this.phenotype.ticking = 'roan';
+    } else if (this.loci.T === 'Tt') {
+      this.phenotype.ticking = 'ticking';
+    }
+
+    /* PHAEOMELANIN */
+    /* ------------ */
+
+    // SHADE
+    if (this.loci.F === 'FF') {
+      this.phenotype.phaeomelanin = 'red';
+    } else if (this.loci.F === 'Ff') {
+      this.phenotype.phaeomelanin = 'fawn';
+    } else {
+      this.phenotype.phaeomelanin = 'cream';
+    }
+
+    /* WHITE */
+    /* ----- */
+
+    // COVERAGE
+    if (this.loci.S[0] === 'S') {
+      this.phenotype.whiteCoverage = 'none';
+    } else if (this.loci.S === 'ii') {
+      this.phenotype.whiteCoverage = 'irish';
+    } else if (this.loci.S === 'is' || this.loci.S === 'ps' || this.loci.S === 'ip') {
+      this.phenotype.whiteCoverage = 'irish';
+      this.phenotype.whiteModified = true;
+    } else if (this.loci.S === 'pp') {
+      this.phenotype.whiteCoverage = 'piebald';
+    } else {
+      this.phenotype.whiteCoverage = 'total';
+    }
+
+    // MODIFIER
+    if (this.phenotype.whiteModified && this.phenotype.I === 'ii') {
+      this.phenotype.whiteCoverage = 'mantle';
+    }
+  },
 };
