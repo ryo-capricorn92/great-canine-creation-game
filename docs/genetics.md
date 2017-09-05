@@ -78,14 +78,14 @@
 
 ---
 
-### **`G` Locus** - *Red, Fawn, Cream*
+### **`F` Locus** - *Red, Fawn, Cream*
 
 #### Alleles
 | Gene | Result | Dominant to | Recessive to | Relies on |
 | :--: | :----: | ----------- | ------------ | --------- |
-| **G** | Red | *g* | null | null |
-| **Gg** | Fawn | *g* | *G* | null |
-| **g** | Cream | null | *G* | null |
+| **F** | Red | *f* | null | null |
+| **Ff** | Fawn | *f* | *F* | null |
+| **F** | Cream | null | *F* | null |
 
 #### Descriptions
 | Gene | Description |
@@ -219,6 +219,7 @@ a pup after both their parents have a copy of the same mutant RCM allele, of whi
 RCM (Random Chance Modifier) Alleles are alleles that do not directly cause genetic mutations. If two
 dogs with the same copy of an RCM allele are bred, the pups will have a 50% chance of having a het
 representation of the mutation the RCM maps to.
+
 | Range | Mutation | Mutation Locus |
 | ----- | -------- | -------------- |
 | 0 - 20 | Deafness | **Mu**[1] |
@@ -239,4 +240,12 @@ representation of the mutation the RCM maps to.
 
 * Generated dogs will have 1 RCM allele and a 50% chance of having a second.
 * Bred dogs will have a 5% chance of randomly gaining one mutant RCM allele.
+
+## Lethal/Trouble Genes
+
+| Gene | Description | Effect |
+| :--: | ----------- | ------ |
+| **MM** | Homozygous (double) merle | Deafness/Blindness |
+| **C-HH** | Double Hairless | Lethal |
+| **T-BB** | Homozygous Bobtail | Lethal |
 

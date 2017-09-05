@@ -28,6 +28,7 @@ module.exports = (app, passport) => {
   });
   app.get('/api/check/username/:username', userRoutes.checkUsername);
   app.get('/api/check/email/:email', userRoutes.checkEmail);
+  app.get('/api/dog/random', dogRoutes.absoluteRandom);
 };
 
 /*
