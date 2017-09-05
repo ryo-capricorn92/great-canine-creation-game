@@ -78,14 +78,14 @@
 
 ---
 
-### **`G` Locus** - *Red, Fawn, Cream*
+### **`F` Locus** - *Red, Fawn, Cream*
 
 #### Alleles
 | Gene | Result | Dominant to | Recessive to | Relies on |
 | :--: | :----: | ----------- | ------------ | --------- |
-| **G** | Red | *g* | null | null |
-| **Gg** | Fawn | *g* | *G* | null |
-| **g** | Cream | null | *G* | null |
+| **F** | Red | *f* | null | null |
+| **Ff** | Fawn | *f* | *F* | null |
+| **F** | Cream | null | *F* | null |
 
 #### Descriptions
 | Gene | Description |
