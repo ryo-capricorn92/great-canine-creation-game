@@ -219,6 +219,7 @@ a pup after both their parents have a copy of the same mutant RCM allele, of whi
 RCM (Random Chance Modifier) Alleles are alleles that do not directly cause genetic mutations. If two
 dogs with the same copy of an RCM allele are bred, the pups will have a 50% chance of having a het
 representation of the mutation the RCM maps to.
+
 | Range | Mutation | Mutation Locus |
 | ----- | -------- | -------------- |
 | 0 - 20 | Deafness | **Mu**[1] |
