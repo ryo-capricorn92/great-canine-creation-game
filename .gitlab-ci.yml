@@ -44,3 +44,4 @@ deploy_test:
   environment:
     name: Development
     url: https://gccgame-test.herokuapp.com/
+  allow_failure: false
