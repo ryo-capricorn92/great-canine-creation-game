@@ -20,16 +20,29 @@ test:
       - coverage
     expire_in: 30 days
 
-deploy:
+deploy_stg:
   stage: deploy
   script:
-    - git remote add -f target ssh://git@heroku.com/gccgame.git
+    - git remote add -f target ssh://git@heroku.com/gccgame-stg.git
     - git config user.name "Ryo Wheatley - Deploy"
     - git config user.email "ryo.capricorn92@gmail.com"
     - git checkout master
     - git push target master
   environment:
-    name: production
-    url: https://gccgame.herokuapp.com/
+    name: Stage
+    url: https://gccgame-stg.herokuapp.com/
   only:
     - master
+
+deploy_test:
+  stage: deploy
+  when: manual
+  script:
+    - git remote add -f target https://git.heroku.com/gccgame-test.git
+    - git config user.name "Ryo Wheatley - Deploy"
+    - git config user.email "ryo.capricorn92@gmail.com"
+    - git checkout master
+    - git push target master
+  environment:
+    name: Development
+    url: https://gccgame-test.herokuapp.com/
