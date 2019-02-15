@@ -11,8 +11,6 @@ before_script:
 test:
   stage: test
   script:
-    - yarn --version
-    - node --version
     - yarn install-all
     - yarn test
   artifacts:
