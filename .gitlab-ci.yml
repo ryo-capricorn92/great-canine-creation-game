@@ -36,7 +36,7 @@ deploy_test:
   stage: deploy
   when: manual
   script:
-    - git remote add -f target https://git.heroku.com/gccgame-test.git
+    - git remote add -f target ssh://git@heroku.com/gccgame-test.git
     - git config user.name "Ryo Wheatley - Deploy"
     - git config user.email "ryo.capricorn92@gmail.com"
     - git checkout master
