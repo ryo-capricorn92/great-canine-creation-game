@@ -1,13 +1,7 @@
-image: kkarczmarczyk/node-yarn:latest
+image: kkarczmarczyk/node-yarn:8.0
 
 variables:
   GIT_SSL_NO_VERIFY: "true"
-
-before_script:
-  - eval $(ssh-agent -s)
-  - ssh-add <(echo "$SSH_PRIVATE_KEY")
-  - mkdir -p ~/.ssh
-  - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
 
 test:
   stage: test
@@ -19,16 +13,39 @@ test:
       - coverage
     expire_in: 30 days
 
-deploy:
+deploy_stg:
   stage: deploy
+  before_script:
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - mkdir -p ~/.ssh
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
   script:
-    - git remote add -f target ssh://git@heroku.com/gccgame.git
+    - git remote add -f target ssh://git@heroku.com/gccgame-stg.git
     - git config user.name "Ryo Wheatley - Deploy"
     - git config user.email "ryo.capricorn92@gmail.com"
     - git checkout master
     - git push target master
   environment:
-    name: Production
-    url: https://gccgame.herokuapp.com/
+    name: Stage
+    url: https://gccgame-stg.herokuapp.com/
   only:
     - master
+
+deploy_test:
+  stage: deploy
+  when: manual
+  before_script:
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - mkdir -p ~/.ssh
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+  script:
+    - git remote add -f target ssh://git@heroku.com/gccgame-test.git
+    - git config user.name "Ryo Wheatley - Deploy"
+    - git config user.email "ryo.capricorn92@gmail.com"
+    - git checkout master
+    - git push target master
+  environment:
+    name: Development
+    url: https://gccgame-test.herokuapp.com/
