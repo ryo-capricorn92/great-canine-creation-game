@@ -260,6 +260,14 @@ const LOCUS = {
   },
 };
 
+function trim(string) {
+  return string
+    .trim()
+    .split(' ')
+    .filter(str => !!str)
+    .join(' ');
+}
+
 module.exports = {
   _generateRandomLocus() {
     const loci = {};
@@ -307,7 +315,62 @@ module.exports = {
     */
 
     this.phenotype = {};
+    this._generatePhenoBases();
 
+    const {
+      eumelaninShade,
+      eumelaninCoverage,
+      brindle,
+      merle,
+      harlequin,
+      ticking,
+      phaeomelanin,
+      whiteCoverage,
+    } = this.phenotype;
+
+    if (whiteCoverage === 'total') {
+      this.phenotypeDescription = 'white';
+    } else if (harlequin) {
+      if (eumelaninCoverage === 'grizzle' || eumelaninCoverage === 'spaniel sable') {
+        this.phenotypeDescription = `${phaeomelanin} harlequin with ${eumelaninCoverage}`;
+      } else if (eumelaninCoverage === 'solid') {
+        this.phenotypeDescription = `${eumelaninShade} ${brindle} harlequin`;
+      } else {
+        this.phenotypeDescription = `${phaeomelanin} harlequin`;
+      }
+    } else {
+      switch (eumelaninCoverage) {
+        case 'none':
+          this.phenotypeDescription = `${phaeomelanin} ${whiteCoverage}`;
+          break;
+        case 'mask':
+        case 'grizzle':
+        case 'spaniel sable':
+          this.phenotypeDescription = `${phaeomelanin} ${whiteCoverage} with ${eumelaninCoverage}`;
+          break;
+        case 'points':
+          if (whiteCoverage === 'irish') {
+            this.phenotypeDescription = `${eumelaninShade} ${brindle} ${harlequin || merle} tricolor`;
+          } else {
+            this.phenotypeDescription = `${eumelaninShade} ${brindle} ${harlequin || merle} ${whiteCoverage} with ${phaeomelanin} points`;
+          }
+          break;
+        default:
+          this.phenotypeDescription = `${eumelaninShade} ${brindle} ${harlequin || merle} ${whiteCoverage}`;
+      }
+    }
+
+    if (ticking) {
+      if (this.phenotypeDescription.includes('with')) {
+        this.phenotypeDescription += ` and ${ticking}`;
+      } else {
+        this.phenotypeDescription += ` with ${ticking}`;
+      }
+    }
+
+    this.phenotypeDescription = trim(this.phenotypeDescription);
+  },
+  _generatePhenoBases() {
     /* EUMELANIN */
     /* --------- */
 
@@ -326,10 +389,14 @@ module.exports = {
 
     // COVERAGE
     if (this.loci.K === 'bb' || this.loci.K === 'bk') {
-      this.phenotype.brindle = true;
+      this.phenotype.brindle = 'brindle';
+    } else {
+      this.phenotype.brindle = '';
     }
     if (this.loci.M === 'MM' || this.loci.M === 'Mm') {
-      this.phenotype.merle = true;
+      this.phenotype.merle = 'merle';
+    } else {
+      this.phenotype.merle = '';
     }
     if (this.phenotype.merle && (this.loci.H === 'HH' || this.loci.H === 'Hh')) {
       this.phenotype.harlequin = true;
@@ -353,11 +420,11 @@ module.exports = {
 
     if (this.phenotype.deferToA && this.phenotype.eumelaninCoverage === 'solid') {
       if (this.loci.A[0] === 'y') {
-        this.phenotype.eumelaninCoverage = 'sable';
+        this.phenotype.eumelaninShade = 'sable';
       } else if (this.loci.A[0] === 'w') {
-        this.phenotype.eumelaninCoverage = 'wolf sable';
+        this.phenotype.eumelaninShade = 'wolf sable';
       } else if (this.loci.A[0] === 't') {
-        this.phenotype.eumelaninCoverage = 'tan points';
+        this.phenotype.eumelaninCoverage = 'points';
       }
     }
 
@@ -385,7 +452,7 @@ module.exports = {
 
     // COVERAGE
     if (this.loci.S[0] === 'S') {
-      this.phenotype.whiteCoverage = 'none';
+      this.phenotype.whiteCoverage = '';
     } else if (this.loci.S === 'ii') {
       this.phenotype.whiteCoverage = 'irish';
     } else if (this.loci.S === 'is' || this.loci.S === 'ps' || this.loci.S === 'ip') {
