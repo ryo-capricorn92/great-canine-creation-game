@@ -260,213 +260,218 @@ const LOCUS = {
   },
 };
 
-function trim(string) {
-  return string
-    .trim()
-    .split(' ')
-    .filter(str => !!str)
-    .join(' ');
-}
 
 module.exports = {
-  _generateRandomLocus() {
-    const loci = {};
-    Object.keys(LOCUS).forEach((locus) => {
-      const alleles = Object.keys(LOCUS[locus]);
-      const alleleA = alleles[Math.floor(Math.random() * alleles.length)];
-      const alleleB = alleles[Math.floor(Math.random() * alleles.length)];
-      const pair = `${alleleA}${alleleB}`;
-      loci[locus] = pair
-        .split('')
-        .sort(sortByDominance(locus))
-        .join('');
-    });
-    this.loci = loci;
-    return loci;
-
-    function sortByDominance(currentLocus) {
-      return (a, b) => {
-        const locus = LOCUS[currentLocus];
-        if (locus[a].dominantTo.includes(b)) {
-          return -1;
-        }
-        if (locus[b].dominantTo.includes(a)) {
-          return 1;
-        }
-        if (a < b) {
-          return -1;
-        }
-        return 1;
-      };
-    }
-  },
-  _generateLocusPhenotype() {
-    /* MAP
-        eumelaninShade - what color are the eumelanin areas of the dog
-        eumelaninCoverage - How much area does the eumelanin cover
-        brindle - is the dog brindle
-        merle - is the dog merle
-        harlequin - is the dog harlequin (relies on merle)
-        ticking - what kind of ticking does the dog have, if any
-        deferToA - will alleles on the A locus show? (relies on kk on K locus)
-        phaeomelanin - what shade will any red be
-        whiteCoverage - what white will the dog have, if any
-        whiteModifier - if the dog has a homo recessive I locus, will it show as mantle
-    */
-
-    this.phenotype = {};
-    this._generatePhenoBases();
-
-    const {
-      eumelaninShade,
-      eumelaninCoverage,
-      brindle,
-      merle,
-      harlequin,
-      ticking,
-      phaeomelanin,
-      whiteCoverage,
-    } = this.phenotype;
-
-    if (whiteCoverage === 'total') {
-      this.phenotypeDescription = 'white';
-    } else if (harlequin) {
-      if (eumelaninCoverage === 'grizzle' || eumelaninCoverage === 'spaniel sable') {
-        this.phenotypeDescription = `${phaeomelanin} harlequin with ${eumelaninCoverage}`;
-      } else if (eumelaninCoverage === 'solid') {
-        this.phenotypeDescription = `${eumelaninShade} ${brindle} harlequin`;
-      } else {
-        this.phenotypeDescription = `${phaeomelanin} harlequin`;
-      }
-    } else {
-      switch (eumelaninCoverage) {
-        case 'none':
-          this.phenotypeDescription = `${phaeomelanin} ${whiteCoverage}`;
-          break;
-        case 'mask':
-        case 'grizzle':
-        case 'spaniel sable':
-          this.phenotypeDescription = `${phaeomelanin} ${whiteCoverage} with ${eumelaninCoverage}`;
-          break;
-        case 'points':
-          if (whiteCoverage === 'irish') {
-            this.phenotypeDescription = `${eumelaninShade} ${brindle} ${harlequin || merle} tricolor`;
-          } else {
-            this.phenotypeDescription = `${eumelaninShade} ${brindle} ${harlequin || merle} ${whiteCoverage} with ${phaeomelanin} points`;
-          }
-          break;
-        default:
-          this.phenotypeDescription = `${eumelaninShade} ${brindle} ${harlequin || merle} ${whiteCoverage}`;
-      }
-    }
-
-    if (ticking) {
-      if (this.phenotypeDescription.includes('with')) {
-        this.phenotypeDescription += ` and ${ticking}`;
-      } else {
-        this.phenotypeDescription += ` with ${ticking}`;
-      }
-    }
-
-    this.phenotypeDescription = trim(this.phenotypeDescription);
-  },
-  _generatePhenoBases() {
-    /* EUMELANIN */
-    /* --------- */
-
-    // SHADE
-    this.phenotype.eumelaninShade = 'black';
-    if (this.loci.B === 'bb') { // liver
-      this.phenotype.eumelaninShade = 'liver';
-    }
-    if (this.loci.D === 'dd') { // dilute
-      if (this.phenotype.eumelaninShade === 'black') {
-        this.phenotype.eumelaninShade = 'blue';
-      } else {
-        this.phenotype.eumelaninShade = 'isabella';
-      }
-    }
-
-    // COVERAGE
-    if (this.loci.K === 'bb' || this.loci.K === 'bk') {
-      this.phenotype.brindle = 'brindle';
-    } else {
-      this.phenotype.brindle = '';
-    }
-    if (this.loci.M === 'MM' || this.loci.M === 'Mm') {
-      this.phenotype.merle = 'merle';
-    } else {
-      this.phenotype.merle = '';
-    }
-    if (this.phenotype.merle && (this.loci.H === 'HH' || this.loci.H === 'Hh')) {
-      this.phenotype.harlequin = true;
-    }
-
-    this.phenotype.eumelaninCoverage = 'solid';
-    if (this.loci.E[0] === 'm') {
-      this.phenotype.eumelaninCoverage = 'mask';
-    } else if (this.loci.E[0] === 'g') {
-      this.phenotype.eumelaninCoverage = 'grizzle';
-    } else if (this.loci.E[0] === 'h') {
-      this.phenotype.eumelaninCoverage = 'spaniel sable';
-    } else if (this.loci.E === 'ee') {
-      this.phenotype.eumelaninCoverage = 'none';
-    }
-
-    // DEFER TO LOCUS A
-    if (this.loci.K === 'kk') {
-      this.phenotype.deferToA = true;
-    }
-
-    if (this.phenotype.deferToA && this.phenotype.eumelaninCoverage === 'solid') {
-      if (this.loci.A[0] === 'y') {
-        this.phenotype.eumelaninShade = 'sable';
-      } else if (this.loci.A[0] === 'w') {
-        this.phenotype.eumelaninShade = 'wolf sable';
-      } else if (this.loci.A[0] === 't') {
-        this.phenotype.eumelaninCoverage = 'points';
-      }
-    }
-
-    // TICKING
-    if (this.loci.T === 'TT') {
-      this.phenotype.ticking = 'roan';
-    } else if (this.loci.T === 'Tt') {
-      this.phenotype.ticking = 'ticking';
-    }
-
-    /* PHAEOMELANIN */
-    /* ------------ */
-
-    // SHADE
-    if (this.loci.F === 'FF') {
-      this.phenotype.phaeomelanin = 'red';
-    } else if (this.loci.F === 'Ff') {
-      this.phenotype.phaeomelanin = 'fawn';
-    } else {
-      this.phenotype.phaeomelanin = 'cream';
-    }
-
-    /* WHITE */
-    /* ----- */
-
-    // COVERAGE
-    if (this.loci.S[0] === 'S') {
-      this.phenotype.whiteCoverage = '';
-    } else if (this.loci.S === 'ii') {
-      this.phenotype.whiteCoverage = 'irish';
-    } else if (this.loci.S === 'is' || this.loci.S === 'ps' || this.loci.S === 'ip') {
-      this.phenotype.whiteCoverage = 'irish';
-      this.phenotype.whiteModified = true;
-    } else if (this.loci.S === 'pp') {
-      this.phenotype.whiteCoverage = 'piebald';
-    } else {
-      this.phenotype.whiteCoverage = 'total';
-    }
-
-    // MODIFIER
-    if (this.phenotype.whiteModified && this.phenotype.I === 'ii') {
-      this.phenotype.whiteCoverage = 'mantle';
-    }
-  },
+  generateRandomLocus,
+  generateLocusPhenotype,
 };
+
+function generateRandomLocus() {
+  const randomAllele = (alleles) => alleles[Math.floor(Math.random() * alleles.length)];
+
+  return Object.entries(LOCUS).reduce((loci, [locus, alleles]) => {
+    loci[locus] = Array.from({ length: 2 }, () => randomAllele(alleles))
+      .sort(byDominance)
+      .join('');
+
+    return loci;
+  }, {});
+
+
+  function byDominance(a, b) {
+    const locus = LOCUS[currentLocus];
+
+    if (locus[a].dominantTo.includes(b)) {
+      return -1;
+    }
+    if (locus[b].dominantTo.includes(a)) {
+      return 1;
+    }
+    if (a < b) {
+      return -1;
+    }
+    return 1;
+  };
+}
+
+function generateLocusPhenotype(loci) {
+  /* MAP
+      eumelaninShade - what color are the eumelanin areas of the dog
+      eumelaninCoverage - How much area does the eumelanin cover
+      brindle - is the dog brindle
+      merle - is the dog merle
+      harlequin - is the dog harlequin (relies on merle)
+      ticking - what kind of ticking does the dog have, if any
+      deferToA - will alleles on the A locus show? (relies on kk on K locus)
+      phaeomelanin - what shade will any red be
+      whiteCoverage - what white will the dog have, if any
+      whiteModifier - if the dog has a homo recessive I locus, will it show as mantle
+  */
+
+  const phenotype = generatePhenoBases(loci);
+  let description = '';
+
+  const {
+    eumelaninShade,
+    eumelaninCoverage,
+    brindle,
+    merle,
+    harlequin,
+    ticking,
+    phaeomelanin,
+    whiteCoverage,
+  } = phenotype;
+
+  if (whiteCoverage === 'total') {
+    description = 'white';
+  } else if (harlequin) {
+    if (eumelaninCoverage === 'grizzle' || eumelaninCoverage === 'spaniel sable') {
+      description = `${phaeomelanin} harlequin with ${eumelaninCoverage}`;
+    } else if (eumelaninCoverage === 'solid') {
+      description = `${eumelaninShade} ${brindle} harlequin`;
+    } else {
+      description = `${phaeomelanin} harlequin`;
+    }
+  } else {
+    switch (eumelaninCoverage) {
+      case 'none':
+        description = `${phaeomelanin} ${whiteCoverage}`;
+        break;
+      case 'mask':
+      case 'grizzle':
+      case 'spaniel sable':
+        description = `${phaeomelanin} ${whiteCoverage} with ${eumelaninCoverage}`;
+        break;
+      case 'points':
+        if (whiteCoverage === 'irish') {
+          description =
+            `${eumelaninShade} ${brindle} ${harlequin || merle} tricolor`;
+        } else {
+          description = `${eumelaninShade} ${brindle} ${harlequin || merle} ` +
+            `${whiteCoverage} with ${phaeomelanin} points`;
+        }
+        break;
+      default:
+        description = `${eumelaninShade} ${brindle} ${harlequin || merle} ` +
+          `${whiteCoverage}`;
+    }
+  }
+
+  if (ticking) {
+    if (description.includes('with')) {
+      description += ` and ${ticking}`;
+    } else {
+      description += ` with ${ticking}`;
+    }
+  }
+
+  return { phenotype, description: trimExtraSpaces(description) };
+
+
+  function trimExtraSpaces(str) {
+    return str.replace(/\s+/g, ' ');
+  }
+}
+
+function generatePhenoBases(loci) {
+  /* EUMELANIN */
+  /* --------- */
+  const phenotype = {};
+
+  // SHADE
+  phenotype.eumelaninShade = 'black';
+  if (loci.B === 'bb') { // liver
+    phenotype.eumelaninShade = 'liver';
+  }
+  if (loci.D === 'dd') { // dilute
+    if (phenotype.eumelaninShade === 'black') {
+      phenotype.eumelaninShade = 'blue';
+    } else {
+      phenotype.eumelaninShade = 'isabella';
+    }
+  }
+
+  // COVERAGE
+  if (loci.K === 'bb' || loci.K === 'bk') {
+    phenotype.brindle = 'brindle';
+  } else {
+    phenotype.brindle = '';
+  }
+  if (loci.M === 'MM' || loci.M === 'Mm') {
+    phenotype.merle = 'merle';
+  } else {
+    phenotype.merle = '';
+  }
+  if (phenotype.merle && (loci.H === 'HH' || loci.H === 'Hh')) {
+    phenotype.harlequin = true;
+  }
+
+  phenotype.eumelaninCoverage = 'solid';
+  if (loci.E[0] === 'm') {
+    phenotype.eumelaninCoverage = 'mask';
+  } else if (loci.E[0] === 'g') {
+    phenotype.eumelaninCoverage = 'grizzle';
+  } else if (loci.E[0] === 'h') {
+    phenotype.eumelaninCoverage = 'spaniel sable';
+  } else if (loci.E === 'ee') {
+    phenotype.eumelaninCoverage = 'none';
+  }
+
+  // DEFER TO LOCUS A
+  if (loci.K === 'kk') {
+    phenotype.deferToA = true;
+  }
+
+  if (phenotype.deferToA && phenotype.eumelaninCoverage === 'solid') {
+    if (loci.A[0] === 'y') {
+      phenotype.eumelaninShade = 'sable';
+    } else if (loci.A[0] === 'w') {
+      phenotype.eumelaninShade = 'wolf sable';
+    } else if (loci.A[0] === 't') {
+      phenotype.eumelaninCoverage = 'points';
+    }
+  }
+
+  // TICKING
+  if (loci.T === 'TT') {
+    phenotype.ticking = 'roan';
+  } else if (loci.T === 'Tt') {
+    phenotype.ticking = 'ticking';
+  }
+
+  /* PHAEOMELANIN */
+  /* ------------ */
+
+  // SHADE
+  if (loci.F === 'FF') {
+    phenotype.phaeomelanin = 'red';
+  } else if (loci.F === 'Ff') {
+    phenotype.phaeomelanin = 'fawn';
+  } else {
+    phenotype.phaeomelanin = 'cream';
+  }
+
+  /* WHITE */
+  /* ----- */
+
+  // COVERAGE
+  if (loci.S[0] === 'S') {
+    phenotype.whiteCoverage = '';
+  } else if (loci.S === 'ii') {
+    phenotype.whiteCoverage = 'irish';
+  } else if (loci.S === 'is' || loci.S === 'ps' || loci.S === 'ip') {
+    phenotype.whiteCoverage = 'irish';
+    phenotype.whiteModified = true;
+  } else if (loci.S === 'pp') {
+    phenotype.whiteCoverage = 'piebald';
+  } else {
+    phenotype.whiteCoverage = 'total';
+  }
+
+  // MODIFIER
+  if (phenotype.whiteModified && phenotype.I === 'ii') {
+    phenotype.whiteCoverage = 'mantle';
+  }
+
+  return phenotype;
+}

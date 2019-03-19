@@ -1,17 +1,25 @@
-module.exports = {
-  _generateRandomRCM() {
-    this.rcm = [];
-    let rcmCount = 1;
-    if (Math.round(Math.random())) {
-      rcmCount += 1;
+const MAX_RCM = 160;
+
+module.exports = { generateRandomRCM };
+
+function generateRandomRCM() {
+  const rcm = [genRCM()];
+  const hasTwo = !!Math.round(Math.random());
+
+  if (hasTwo) {
+    let exclude = rcm[0];
+    rcm.push(genRCM(exclude));
+  }
+
+  return rcm;
+
+  function genRCM(exclude) {
+    let rcm = Math.ceil(Math.random() * MAX_RCM);
+
+    while (rcm === exclude) {
+      rcm = Math.ceil(Math.random() * MAX_RCM);
     }
-    for (let i = 0; i < rcmCount; i++) {
-      const randomRcm = Math.ceil(Math.random() * 160);
-      if (!this.rcm.includes(randomRcm)) {
-        this.rcm.push(randomRcm);
-      } else {
-        i -= 1;
-      }
-    }
-  },
-};
+
+    return rcm;
+  }
+}
